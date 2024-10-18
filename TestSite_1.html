@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Delwart</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        /* Basic styling for tabs */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /*<!-- CSS to style the Contact Section --> */
+        #contact {
+            text-align: center;
+            padding: 30px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #contact h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #contact p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info li i {
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 1.4em;
+        }
+
+        .contact-info li a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        .contact-info li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Email wrapper to ensure alignment */
+
+        .email-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: nowrap;
+        }
+
+        .email {
+            font-size: 0.6em;
+            /* Smaller font size for the email addresses */
+        }
+
+        /* Reduce the font size of emails and separator */
+        .email,
+        .separator {
+            font-size: 0.9em;
+            /* Decrease the font size for email and separator */
+        }
+
+        .separator {
+            margin: 0 5px;
+            color: #555;
+        }
+
+        .button.alt {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button.alt:hover {
+            background-color: #2980b9;
+        }
+
+
+        /*<!-- CSS to style the project grid --> */
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .project-card {
+            flex: 1 1 30%;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .project-card h3 a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .project-card p {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hide all tab content by default */
+        .tab-content {
+            display: none;
+        }
+
+
+        /* Format images for Project Details */
+        .responsive-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Format smaller images for Project Details */
+        .responsive-img-smaller {
+            max-width: 75%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* To center the video box for the Autonmous Bot Project  */
+
+        .video-container-autonmous-bot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container Styling for Lab Report */
+        .lab-report-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Box Styling for Lab Report */
+        .lab-report-box {
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* PDF Thumbnail Styling for Lab Report */
+        .lab-report-thumbnail {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .lab-report-thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        /* Button Styling for Lab Report */
+        .lab-report-button.alt {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .lab-report-button.alt:hover {
+            background-color: #2980b9;
+        }
+
+
+        .gif-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            /* Centers the GIF horizontally */
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .course-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .course-list li {
+            margin: 10px 0;
+        }
+
+        .course-list li a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .course-list li a:hover {
+            text-decoration: underline;
+        }
+
+        .box h3 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .box h3 i {
+            margin-right: 10px;
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        .box {
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            background: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="homepage is-preload">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <section id="header">
+
+            <!-- Navigation (Tabs) -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="#" onclick="showTab('home')">Home</a></li>
+                    <li><a href="#" onclick="showTab('cv')">CV</a></li>
+                    <li><a href="#" onclick="showTab('projects')">Projects</a></li>
+                    <li><a href="#" onclick="showTab('courses')">Courses</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Main Content (Tabs) -->
+        <section id="main">
+            <!-- Home Tab -->
+            <div id="home" class="tab-content active">
+                <section id="banner">
+                    <header>
+                        <h2>Rafael Delwart</h2>
+                        <p>Robotics Engineer at Baskin School of Engineering UCSC</p>
+                    </header>
+                </section>
+
+                <section>
+                    <header class="major">
+                        <h2>My Portfolio</h2>
+                    </header>
+
+                    <div class="row">
+                        <!-- Project 1 Container -->
+                        <div class="col-4 col-6-medium col-12-small" id="project1-container">
+                        </div>
+
+                        <!-- Project 2 Container -->
+                        <div class="col-4 col-6-medium col-12-small" id="project2-container">
+                        </div>
+
+                        <!-- Project 3 Container -->
+                        <div class="col-4 col-6-medium col-12-small" id="project3-container">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Me Section -->
+                <section id="contact" class="box">
+                    <header>
+                        <h2>Contact me</h2>
+                    </header>
+
+                    <ul class="contact-info">
+                        <li><i class="icon solid fa-phone"></i> <strong>Phone:</strong> +1 (415) 802-5537</li>
+                        <li>
+                            <i class="icon solid fa-envelope"></i> <strong>Email:</strong>
+                            <div class="email-wrapper">
+                                <a href="mailto:Rdelwart@ucsc.edu" class="email">Rdelwart@ucsc.edu</a> (University)
+                                <span class="separator">•</span>
+                                <a href="mailto:Radelwart@gmail.com" class="email">Radelwart@gmail.com</a> (Personal)
+                            </div>
+                        </li>
+                        <li><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a
+                                href="https://www.linkedin.com/in/rafael-delwart-062471287/"
+                                target="_blank">linkedin.com/in/rafael-delwart</a></li>
+                        <li><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/ramfi-d"
+                                target="_blank">github.com/ramfi-d</a></li>
+                    </ul>
+
+                    <footer>
+                        <a href="assets/Resume.pdf" class="button alt" download>Download My CV</a>
+                    </footer>
+                </section>
+            </div>
+
+            <!-- CV Tab -->
+            <div id="cv" class="tab-content">
+                <div class="container">
+                    <section class="box">
+                        <a href="#" class="image featured"><img src="assets/Resume.jpg" alt="Resume"></a>
+                        <footer>
+                            <a href="javascript:void(0)" onclick="openPdfFullScreen('assets/Resume.pdf')"
+                                class="button alt">Download PDF</a>
+                        </footer>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Projects Tab -->
+            <div id="projects" class="tab-content">
+                <div class="container">
+                    <h2>My Projects</h2>
+
+                    <!-- Project Grid Container (Projects will be inserted here) -->
+                    <div class="row" id="projects-container">
+                        <!-- JavaScript will dynamically insert project cards here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Project Sections (hidden by default) -->
+            <div id="project1-details" class="tab-content" style="display:none;">
+                <div class="container">
+                    <h2>General Purpose Adjustable Bipolar DC Voltage Supply</h2>
+
+                    <!-- Project Detailed Description -->
+                    <section class="box post">
+                        <figure>
+                            <img class="responsive-img" src="images/Voltage_Supply_Project_BreadBoard.jpeg"
+                                alt="Breadboard setup for Adjustable Bipolar DC Voltage Supply Project">
+                            <figcaption>Adjustable Bipolar DC Voltage Supply Breadboard Setup</figcaption>
+                        </figure>
+
+                        <header>
+                            <h3>Overview</h3>
+                        </header>
+                        <p>This power supply is designed for delivering variable current while maintaining high
+                            stability. It uses 3-terminal linear voltage regulators and half-wave rectifiers to provide
+                            reliable performance, making it ideal for a variety of electronic projects requiring bipolar
+                            power supplies.</p>
+                    </section>
+
+                    <section>
+                        <header>
+                            <h3>Wiring Diagram</h3>
+                        </header>
+                        <figure>
+                            <img class="responsive-img" src="images/Voltage_Supply_Wiring_diagram.jpg"
+                                alt="Schematic Wiring Diagram for Adjustable Bipolar DC Voltage Supply">
+                            <figcaption>Detailed wiring diagram with pin numbers and component values.</figcaption>
+                        </figure>
+                        <p>The diagram illustrates the wiring setup for the breadboard, featuring pin numbers and
+                            component values to facilitate easy assembly and testing. The transformer shown as T1
+                            steps down the input AC voltage from 120V AC to 18V RMS (1000 mA capacity).
+                            The transformer provides two AC outputs which will be used to generate both positive
+                            and negative voltage rails.
+
+                            D1 and D2 are 1N4001 diodes, which act as rectifiers in a half-wave configuration.
+                            D1 handles the positive half-cycles, and D2 handles the negative half-cycles of the AC
+                            signal from the transformer. This setup ensures that the AC signal is converted into
+                            pulsating DC signals for further regulation.
+
+                            C1 and C2 are 1000 µF electrolytic capacitors they smooth the pulsating DC
+                            signals to produce a more stable DC voltage. They reduce the ripple
+                            voltage before it reaches the regulators.
+
+                            C3 and C4 are 1 µF capacitors, these capacitors are placed at the output of the LM317 and
+                            LM337 regulators to improve stability and reduce high-frequency noise.
+                            TI recommends that the input terminal be bypassed to ground with a bypass capacitor, optimum
+                            placement is closest to the input terminal of the device and the system GND. TI recommends a
+                            0.1 µF capacitor for high frequency and 10 µF for high capacity thus 1 µF was chosen for a
+                            balance of both.
+
+                            LM317 is an adjustable positive voltage regulator, it regulates the positive
+                            voltage side of the circuit. It has three pins: IN, OUT, and ADJ (adjustment pin for
+                            controlling the output voltage).
+                            LM337 is the counterpart for the negative rail, an adjustable negative voltage
+                            regulator.
+
+                            For the positive voltage rail, R1 and R2 create a voltage divider. R1 is a fixed
+                            resistor, while R2 is a 5k potentiometer that adjusts the output voltage. R7, which is in
+                            parallel with R2, fine-tunes the adjustment range of R2. This simnple addition allows finer
+                            control over the output voltage.
+
+                            For LM337 (negative voltage rail), R4 and R3 create a similar voltage divider with R5 for
+                            finer control.
+                            R6 sets the lower bound for the newgative rail at about -3V.
+
+                            The final output of this power supply can be fine-tuned to provide adjustable voltages in
+                            the range of approximately +/- 3V to +/- 16V
+
+
+                        </p>
+                    </section>
+
+                    <!-- Return to Projects Button -->
+                    <a href="#" class="button" onclick="showProjects()">Projects</a>
+                </div>
+            </div>
+
+            <!-- Project 2 Detailed Section -->
+            <div id="project2-details" class="tab-content" style="display:none;">
+                <div class="container">
+
+                    <h2>Event Service Framework for an Autonomous Robot</h2>
+
+                    <!-- Video Section -->
+                    <div class="video-container-autonmous-bot">
+                        <video controls width="1200">
+                            <source src="assets/HSM_demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+
+                    <p>This project involved developing an event service framework for an autonomous roach. The system,
+                        programmed in C, supports asynchronous event processing and a straightforward implementation of
+                        Hierarchical State Machines (HSMs). The objective of the autonomous bot was to use its onboard
+                        Light Dependent Resistor (LDR) sensors to find out dark areas, mimicking the behavior of a real
+                        cockroach. Once the roach finds darkness, it pauses its search algorithm until one of its side
+                        bump sensors is triggered, simulating a human disturbance. When disturbed, the robot performs a
+                        frantic evasive maneuver until it finds another dark spot to hide. The video demonstrates the
+                        bot hiding under chairs and scurrying away to find another desk or chair to conceal itself
+                        beneath.</p>
+
+
+                    <figure>
+                        <img class="responsive-img-smaller" src="images/Roach_HSM.png"
+                            alt="Hierarchical State Machine used to manage the movement of the cockroach">
+                        <figcaption>Hierarchical State Machine used to manage the movement of the cockroach.
+                        </figcaption>
+                    </figure>
+
+                    <div class="lab-report-container">
+                        <section class="lab-report-box">
+                            <header>
+                                <h2>Detailed Report: Autonmous Roach</h2>
+                            </header>
+
+                            <!-- PDF Thumbnail / Preview (Link to open PDF) -->
+                            <a href="assets/Lab_0_ECE118.pdf" target="_blank" class="lab-report-pdf-link">
+                                <img src="images/Roach_Lab_Report_Cover.png" alt="Detailed Report Thumbnail"
+                                    class="lab-report-thumbnail">
+                            </a>
+
+                            <!-- Full-Screen PDF Button -->
+                            <footer>
+                                <button class="lab-report-button alt lab-report-fullscreen-button"
+                                    onclick="openPdfFullScreen('assets/Lab_0_ECE118.pdf')">View Full Screen</button>
+                            </footer>
+                        </section>
+                    </div>
+
+
+
+                    <!-- Return to Projects Button -->
+                    <a href="#" class="button" onclick="showProjects()">Return to Projects</a>
+                </div>
+            </div>
+
+
+            <!-- Project 3 Detailed Section -->
+            <div id="project3-details" class="tab-content" style="display:none;">
+                <div class="container">
+                    <h2>Rock Climbing Tracker</h2>
+                    <!-- Add detailed content for project 4 -->
+
+                    <img src="assets/displacementXAnimation.gif" alt="X axis displacement of 1 meter" class="gif-image">
+                    <p>This project involved development and testing of an activity classification system designed to
+                        track rock climbing routes by measuring displacement throughout the route using a 9-DOF IMU
+                        sensor, the BNO055. The sensor's acceleration data was double-integrated to derive the
+                        displacement over time, with a state machine implemented for data collection in Calibration,
+                        Recording, and Waiting states. Calibration mode ensured accuracy by requiring all sensor types
+                        to be
+                        fully calibrated before data recording began. Data was recorded using CoolTerm and analyzed in
+                        MATLAB, where preprocessing included debouncing, bias removal, and applying both low-pass and
+                        high-pass filters to get human movement and eliminate the random spikes from the sensor.
+                        Velocity and displacement were calculated by integrating the acceleration
+                        data, and their visualizations provided insights into the movements captured by the sensor.
+                        Initial trials along each axis produced some measurable error rates, which increased during
+                        real-world climbing due to the complexities of motion and noise sensitivity.
+
+                        The best results from climbing trials demonstrated
+                        increased error with longer climbs, highlighting the difficulties in filtering noise and
+                        accurately capturing complex movements. While the device showed potential, the results
+                        emphasized the limitations of using cheap IMUs for precise activity tracking in dynamic
+                        environments.
+                    </p>
+
+                    <div class="lab-report-container">
+                        <section class="lab-report-box">
+                            <header>
+                                <h2>Detailed Report: Rock Climbing Tracker</h2>
+                            </header>
+
+                            <!-- PDF Thumbnail / Preview (Link to open PDF) -->
+                            <a href="assets/Rock_Climbing_Project.pdf" target="_blank" class="lab-report-pdf-link">
+                                <img src="images/Rock-Climbign-Report-Cover.png" alt="Detailed Report Thumbnail"
+                                    class="lab-report-thumbnail">
+                            </a>
+
+                            <!-- Full-Screen PDF Button -->
+                            <footer>
+                                <button class="lab-report-button alt lab-report-fullscreen-button"
+                                    onclick="openPdfFullScreen('assets/Rock_Climbing_Project.pdf')">View Full
+                                    Screen</button>
+                            </footer>
+                        </section>
+                    </div>
+
+                    <div class="pptx-container">
+                        <header>
+                            <h2>Presentation</h2>
+                        </header>
+                        <div class="pptx-iframe-wrapper">
+                            <iframe
+                                src="https://docs.google.com/presentation/d/e/2PACX-1vS9F5SmxJDwwYlXors3bMC8JABm6DGpaJ7p7I9JBsxBcHQRXgsuEvpKKEElxc_LIxOZy53SHo5PIl8k/embed?start=true&loop=true&delayms=5000"
+                                frameborder="0" width="1440" height="839" allowfullscreen="true"
+                                mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                        </div>
+                    </div>
+
+
+                    <!-- Return to Projects Button -->
+                    <a href="#" class="button" onclick="showProjects()">Return to Projects</a>
+                </div>
+            </div>
+
+
+            <!-- Project 4 Detailed Section -->
+            <div id="project4-details" class="tab-content" style="display:none;">
+                <div class="container">
+                    <h2>Project Title 4</h2>
+                    <!-- Add detailed content for project 4 -->
+                    <p>Details of project 4 go here...</p>
+
+                    <!-- Return to Projects Button -->
+                    <a href="#" class="button" onclick="showProjects()">Return to Projects</a>
+                </div>
+            </div>
+
+
+            <!-- Courses Tab -->
+            <div id="courses" class="tab-content">
+                <div class="container">
+                    <h2>Relevant Coursework</h2>
+
+                    <!-- Electrical Engineering Section -->
+                    <section class="box">
+                        <header>
+                            <h3><i class="icon solid fa-bolt"></i> Electrical Engineering</h3>
+                        </header>
+                        <ul class="course-list">
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece101"
+                                    target="_blank">ECE101/L</a> – Intro to linear systems and signals, with lab work.
+                            </li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece103"
+                                    target="_blank">ECE103/L</a> – Analysis of electrical circuits and components,
+                                includes lab work.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece118" target="_blank">ECE118</a>
+                                – A project-based course on designing and integrating mechanical, electrical, and
+                                computer systems into functional automated systems using sensors and microcontrollers.
+                            </li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece121" target="_blank">ECE121</a>
+                                – Design and use of microcontroller-based systems and interfacing with analog and
+                                digital systems.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece141" target="_blank">ECE141</a>
+                                – Advanced digital design and hardware implementation.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece167"
+                                    target="_blank">ECE167/L</a> – Use of sensors for temperature, motion, sound, and
+                                light, focusing on digital integration.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece171"
+                                    target="_blank">ECE171/L</a> – Amplifiers, oscillators, and signal processing with
+                                hands-on lab work.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Computer Science Section -->
+                    <section class="box">
+                        <header>
+                            <h3><i class="icon solid fa-desktop"></i> Computer Science</h3>
+                        </header>
+                        <ul class="course-list">
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece13" target="_blank">ECE13</a> –
+                                C programming with a focus on embedded systems, using the Microchip PIC32
+                                microcontroller.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/cse12" target="_blank">CSE12</a> –
+                                Introduction to computer systems, digital logic, and assembly language programming.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/cse16" target="_blank">CSE16/L</a>
+                                – Study of discrete structures including sets, graphs, and combinatorics applied to
+                                computer science.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/cse20" target="_blank">CSE20</a> –
+                                Mathematical foundations of computer science.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/cse30" target="_blank">CSE30</a> –
+                                Software development in Python with a focus on object-oriented design.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/cse100"
+                                    target="_blank">CSE100/L</a> – Advanced data structures and algorithm design,
+                                includes lab work.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/cse101" target="_blank">CSE101</a>
+                                – Study of advanced algorithms.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/cse107" target="_blank">CSE107</a>
+                                – Probability theory and statistics for computer science.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Math Section -->
+                    <section class="box">
+                        <header>
+                            <h3><i class="icon solid fa-square-root-alt"></i> Mathematics</h3>
+                        </header>
+                        <ul class="course-list">
+                            <li><a href="https://catalog.ucsc.edu/en/current/general-catalog/courses/math-mathematics/lower-division/math-19a/"
+                                    target="_blank">MATH19A</a> – Calculus for science, engineering, and mathematics.
+                            </li>
+                            <li><a href="https://catalog.ucsc.edu/en/current/general-catalog/courses/math-mathematics/lower-division/math-19b/"
+                                    target="_blank">MATH19B</a> – Continuation of calculus with applications in
+                                engineering.</li>
+                            <li><a href="https://catalog.ucsc.edu/en/current/general-catalog/courses/math-mathematics/lower-division/math-21/"
+                                    target="_blank">MATH21A</a> – Linear algebra and matrix theory.</li>
+                            <li><a href="https://catalog.ucsc.edu/en/current/general-catalog/courses/math-mathematics/lower-division/math-23a/"
+                                    target="_blank">MATH23A</a> – Vector calculus and its applications.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Physics/Mechanics Section -->
+                    <section class="box">
+                        <header>
+                            <h3><i class="icon solid fa-atom"></i> Physics/Mechanics</h3>
+                        </header>
+                        <ul class="course-list">
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece9" target="_blank">ECE9</a> –
+                                Fundamentals of statics and mechanics, focusing on the behavior of materials under
+                                various forces.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece10" target="_blank">ECE10</a> –
+                                Application of mathematical models to analyze the kinematics and dynamics of robot
+                                mechanisms.</li>
+                            <li><a href="https://catalog.ucsc.edu/current/general-catalog/courses/phys-physics/lower-division/phys-5a/"
+                                    target="_blank">PHYS5A/L</a> – Mechanics and wave motion, with lab component.</li>
+                            <li><a href="https://catalog.ucsc.edu/current/general-catalog/courses/phys-physics/lower-division/phys-5b/"
+                                    target="_blank">PHYS5B/L</a> – Study of electricity and magnetism, includes lab
+                                work.</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+
+
+            <!-- Import Font Awesome for Icons (Add to the head section if needed) -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+            <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.dropotron.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <!-- JavaScript to handle visibility (for learn more tabs)-->
+            <script>
+                // Function to show a detailed project section
+                function showDetails(projectId) {
+                    // Hide all tab content
+                    document.querySelectorAll('.tab-content').forEach(function (section) {
+                        section.style.display = 'none';  // Hide all tabs
+                    });
+
+                    // Show the selected project details
+                    document.getElementById(projectId).style.display = 'block';  // Show only the selected project details
+                }
+            </script>
+
+            <script>
+                // Function to return to the main Projects tab
+                function showProjects() {
+                    // Hide all tab content
+                    document.querySelectorAll('.tab-content').forEach(function (section) {
+                        section.style.display = 'none';  // Hide all detailed sections
+                    });
+
+                    // Show the main Projects tab
+                    document.getElementById('projects').style.display = 'block';  // Show the main project list
+                }
+            </script>
+
+            <script>
+                // Function to switch between different tabs (Home, CV, Projects, Courses)
+                function showTab(tabId) {
+                    // Hide all tab content
+                    document.querySelectorAll('.tab-content').forEach(function (tab) {
+                        tab.style.display = 'none';  // Hide all tabs
+                    });
+
+                    // Show the selected tab
+                    document.getElementById(tabId).style.display = 'block';  // Show only the selected tab
+                }
+            </script>
+
+
+
+            <script>
+                // Function to open PDF in fullscreen
+                function openPdfFullScreen(url) {
+                    var win = window.open(url, '_blank');
+                    win.focus();
+                }
+            </script>
+
+
+
+            <!-- JavaScript Array and Code to Generate Project Cards -->
+            <script>
+                // Array holding project data
+                const projects = [
+                    {
+                        id: 'project1-details',
+                        imgSrc: 'images/Voltage_Supply_Project_BreadBoard.jpeg',
+                        alt: 'General Purpose Adjustable Bipolar DC Voltage Supply',
+                        title: 'General Purpose Adjustable Bipolar DC Voltage Supply',
+                        description: 'This is a stable and adjustable power supply delivering up to 250mA. Utilizes 3-terminal linear voltage regulators and half-wave rectifiers.'
+                    },
+                    {
+                        id: 'project2-details',
+                        imgSrc: 'images/RoachImage.jpeg',
+                        alt: 'Event Service Framework for an Autonomous Robot',
+                        title: 'Event Service Framework for an Autonomous Robot',
+                        description: 'The project focuses on writing embedded software for event-driven control of the robot, modeled after a Roach, using an Event Service Framework.'
+                    },
+                    {
+                        id: 'project3-details',
+                        imgSrc: 'images/Rock_Climbing_Tracker_Test.jpeg',
+                        alt: 'Rock Climbing Tracker',
+                        title: 'Rock Climbing Tracker',
+                        description: 'Uses a 9-DOF IMU sensor data to track 3-D displacement and graph the movement using MatLab'
+                    },
+                    {
+                        id: 'project4-details',
+                        imgSrc: 'images/BaysisOsmosisGame.jpeg',
+                        alt: 'Osmosis game using BASYS3 board and Verilog',
+                        title: 'Osmosis game using BASYS3 board and Verilog',
+                        description: 'This is the fourth project in the portfolio. Brief description goes here.'
+                    }
+                ];
+
+                // Function to dynamically generate and display all projects in the Projects tab
+                function generateProjects() {
+                    const projectContainer = document.getElementById('projects-container'); // Container for projects
+                    let projectHTML = '';
+
+                    projects.forEach(project => {
+                        projectHTML += `
+                <div class="col-4 col-6-medium col-12-small">
+                    <section class="box">
+                        <a href="#" class="image featured" onclick="showDetails('${project.id}')">
+                            <img src="${project.imgSrc}" alt="${project.alt}">
+                        </a>
+                        <header>
+                            <h3><a href="#" onclick="showDetails('${project.id}')">${project.title}</a></h3>
+                        </header>
+                        <p>${project.description}</p>
+                        <footer>
+                            <a href="#" class="button alt" onclick="showDetails('${project.id}')">Learn More</a>
+                        </footer>
+                    </section>
+                </div>
+            `;
+                    });
+
+                    // Insert generated HTML into the container
+                    projectContainer.innerHTML = projectHTML;
+                }
+                // Call the function to generate projects when the page loads in the porjects tab
+                document.addEventListener('DOMContentLoaded', generateProjects);
+
+
+                // Function to display a single project based on input (ID or index)
+                function displaySingleProject(projectId, containerId) {
+                    const projectContainer = document.getElementById(containerId);
+                    let projectHTML = '';
+
+                    // Find the project based on the given project ID
+                    const project = projects.find(proj => proj.id === projectId);
+
+                    if (project) {
+                        projectHTML += `
+                    <div class="col-12">
+                        <section class="box">
+                            <a href="#" class="image featured" onclick="showDetails('${project.id}')">
+                                <img src="${project.imgSrc}" alt="${project.alt}">
+                            </a>
+                            <header>
+                                <h3><a href="#" onclick="showDetails('${project.id}')">${project.title}</a></h3>
+                            </header>
+                            <p>${project.description}</p>
+                            <footer>
+                                <a href="#" class="button alt" onclick="showDetails('${project.id}')">Learn More</a>
+                            </footer>
+                        </section>
+                    </div>
+                `;
+                    } else {
+                        projectHTML = '<p>Project not found.</p>';
+                    }
+
+                    // Insert the single project's HTML into the container
+                    projectContainer.innerHTML = projectHTML;
+                }
+
+                // Call the function to generate 3 different projects in the main tab
+                document.addEventListener('DOMContentLoaded', function () {
+                    displaySingleProject('project1-details', 'project1-container');
+                    displaySingleProject('project2-details', 'project2-container');
+                    displaySingleProject('project3-details', 'project3-container');
+                });    </script>
+</body>
+
+</html>
