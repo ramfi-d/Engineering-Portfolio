@@ -366,7 +366,7 @@
                     </ul>
 
                     <footer>
-                        <a href="assets/Resume.pdf" class="button alt" download>Download My CV</a>
+                        <a href="docs/assets/Resume.pdf" class="button alt" download>Download My CV</a>
                     </footer>
                 </section>
             </div>
@@ -375,9 +375,9 @@
             <div id="cv" class="tab-content">
                 <div class="container">
                     <section class="box">
-                        <a href="#" class="image featured"><img src="assets/Resume.jpg" alt="Resume"></a>
+                        <a href="#" class="image featured"><img src="docs/assets/Resume.jpg" alt="Resume"></a>
                         <footer>
-                            <a href="javascript:void(0)" onclick="openPdfFullScreen('assets/Resume.pdf')"
+                            <a href="javascript:void(0)" onclick="openPdfFullScreen('docs/assets/Resume.pdf')"
                                 class="button alt">Download PDF</a>
                         </footer>
                     </section>
@@ -593,7 +593,7 @@
                         <div class="pptx-iframe-wrapper">
                             <iframe
                                 src="https://docs.google.com/presentation/d/e/2PACX-1vS9F5SmxJDwwYlXors3bMC8JABm6DGpaJ7p7I9JBsxBcHQRXgsuEvpKKEElxc_LIxOZy53SHo5PIl8k/embed?start=true&loop=true&delayms=5000"
-                                frameborder="0" width="1440" height="839" allowfullscreen="true"
+                                frameborder="0" width="1100" height="839" allowfullscreen="true"
                                 mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                         </div>
                     </div>
@@ -611,6 +611,47 @@
                     <h2>Project Title 4</h2>
                     <!-- Add detailed content for project 4 -->
                     <p>Details of project 4 go here...</p>
+
+                    <!-- Return to Projects Button -->
+                    <a href="#" class="button" onclick="showProjects()">Return to Projects</a>
+                </div>
+            </div>
+
+            <!-- Project 5 Detailed Section -->
+            <div id="project5-details" class="tab-content" style="display:none;">
+                <div class="container">
+                    <h2>Autonomous Ball-Collecting Robot</h2>
+                    <!-- Add detailed content for project 5 -->
+                    <p>DUnder the guidance of Professor Gabriel Hugh Elkaim, our team, including Ana Elizabeth Villa and
+                        Rafael Delwart, developed an autonomous robot as part of the final lab in Mechatronics
+                        (ECE-118). Tasked with navigating a game field, the robot locates, traps, and deposits 25mm
+                        chrome balls either within itself or onto the opponent's field. Our design, "The Roller,"
+                        utilized tape sensors and bumpers for navigation and employed an efficient ball collection
+                        mechanism to meet the challenge of collecting and depositing at least 30 balls within a
+                        two-minute round. This project showcased a blend of mechanical design, electrical system
+                        integration, and software strategy, culminating in a successful demonstration at the final
+                        competition.</p>
+
+                    <div class="lab-report-container">
+                        <section class="lab-report-box">
+                            <header>
+                                <h2>Detailed Report: Autonmous Ball-Collecting Robot</h2>
+                            </header>
+
+                            <!-- PDF Thumbnail / Preview (Link to open PDF) -->
+                            <a href="assets/Autonomous_Robot_Mechatronics_Report.pdf" target="_blank" class="lab-report-pdf-link">
+                                <img src="images/Autonomous_Robot_Mechatronics_Report_Cover.png" alt="Detailed Report Thumbnail"
+                                    class="lab-report-thumbnail">
+                            </a>
+
+                            <!-- Full-Screen PDF Button -->
+                            <footer>
+                                <button class="lab-report-button alt lab-report-fullscreen-button"
+                                    onclick="openPdfFullScreen('assets/RAutonomous_Robot_Mechatronics_Report.pdf')">View Full
+                                    Screen</button>
+                            </footer>
+                        </section>
+                    </div>
 
                     <!-- Return to Projects Button -->
                     <a href="#" class="button" onclick="showProjects()">Return to Projects</a>
@@ -650,6 +691,7 @@
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece171"
                                     target="_blank">ECE171/L</a> – Amplifiers, oscillators, and signal processing with
                                 hands-on lab work.</li>
+
                         </ul>
                     </section>
 
@@ -816,8 +858,18 @@
                         imgSrc: 'images/BaysisOsmosisGame.jpeg',
                         alt: 'Osmosis game using BASYS3 board and Verilog',
                         title: 'Osmosis game using BASYS3 board and Verilog',
-                        description: 'This is the fourth project in the portfolio. Brief description goes here.'
+                        description: 'This interactive game, uses a BASYS3 board and VGA monitor to simulate the movement of red and blue molecules across a membrane allowing the player to sort the molecules by chanign the color of the memebrane. Utilizing Verilog for game logic, the design challenges included generating VGA signals, manipulating RGB data, and implementing responsive game controls via physical buttons on the board.'
+
+                    },
+                    {
+                        id: 'project5-details',
+                        imgSrc: 'images/Autonomous_Robot_Mechatronics.jpg',
+                        alt: 'Autonomous Ball-Collecting Robot',
+                        title: 'Autonomous Ball-Collecting Robot',
+                        description: 'Designed and built for the ECE-118 Mechatronics course under Professor Gabriel Hugh Elkaim, this autonomous robot navigates a designated field to collect and deposit 25mm chrome balls, utilizing bumpers and tape sensors for precise movement and effective ball handling within a competitive two-minute round.'
                     }
+
+
                 ];
 
                 // Function to dynamically generate and display all projects in the Projects tab
