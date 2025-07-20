@@ -376,7 +376,9 @@
                 <div class="container">
                     <section class="box">
                         <div class="pdf-preview" style="width: 100%; text-align: center;">
+                            <!-- Try PDF.js first, fallback to iframe -->
                             <canvas id="pdf-canvas" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; display: none;"></canvas>
+                            <iframe id="pdf-fallback" src="Resume/Rafael_Delwart_CV.pdf" style="width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 5px; display: none;"></iframe>
                             <div id="pdf-loading" style="padding: 50px; color: #666;">Loading PDF...</div>
                             <div id="pdf-error" style="padding: 50px; color: #d32f2f; display: none;">
                                 Error loading PDF. <a href="Resume/Rafael_Delwart_CV.pdf" target="_blank">Click here to view PDF directly</a>
@@ -802,6 +804,7 @@
                     const canvas = document.getElementById('pdf-canvas');
                     const loadingDiv = document.getElementById('pdf-loading');
                     const errorDiv = document.getElementById('pdf-error');
+                    const fallbackIframe = document.getElementById('pdf-fallback');
                     
                     try {
                         console.log('Attempting to load PDF from: Resume/Rafael_Delwart_CV.pdf');
@@ -838,10 +841,19 @@
                         canvas.style.display = 'block';
                         
                     } catch (error) {
-                        console.error('Error rendering PDF:', error);
-                        console.error('Error details:', error.message);
+                        console.error('Error rendering PDF with PDF.js:', error);
+                        console.log('Falling back to iframe...');
+                        
+                        // Fallback to iframe
                         loadingDiv.style.display = 'none';
-                        errorDiv.style.display = 'block';
+                        fallbackIframe.style.display = 'block';
+                        
+                        // If iframe also fails, show error
+                        fallbackIframe.onerror = function() {
+                            console.error('Iframe fallback also failed');
+                            fallbackIframe.style.display = 'none';
+                            errorDiv.style.display = 'block';
+                        };
                     }
                 }
 
