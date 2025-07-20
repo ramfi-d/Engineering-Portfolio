@@ -1,0 +1,56 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "pdflatex-rafael-cv",
+			"type": "shell",
+			"command": "pdflatex",
+			"args": [
+				"-jobname=Rafael_Delwart_CV",
+				"-interaction=nonstopmode",
+				"-file-line-error",
+				"main.tex"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": true
+			},
+			"options": {
+				"cwd": "${workspaceFolder}/Resume"
+			},
+			"dependsOrder": "sequence"
+		},
+		{
+			"label": "clean-latex-aux",
+			"type": "shell",
+			"command": "rm",
+			"args": [
+				"-f",
+				"Rafael_Delwart_CV.aux",
+				"Rafael_Delwart_CV.log",
+				"Rafael_Delwart_CV.out",
+				"Rafael_Delwart_CV.fls",
+				"Rafael_Delwart_CV.fdb_latexmk",
+				"Rafael_Delwart_CV.synctex.gz"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": false,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "shared"
+			},
+			"options": {
+				"cwd": "${workspaceFolder}/Resume"
+			}
+		}
+	]
+}

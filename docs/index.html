@@ -366,7 +366,7 @@
                     </ul>
 
                     <footer>
-                        <a href="docs/assets/Resume.pdf" class="button alt" download>Download My CV</a>
+                        <a href="../Resume/Rafael_Delwart_CV.pdf" class="button alt" download="Rafael_Delwart_CV.pdf">Download My CV</a>
                     </footer>
                 </section>
             </div>
@@ -375,10 +375,15 @@
             <div id="cv" class="tab-content">
                 <div class="container">
                     <section class="box">
-                        <a href="#" class="image featured"><img src="docs/assets/Resume.jpg" alt="Resume"></a>
+                        <div class="pdf-preview" style="width: 100%; text-align: center;">
+                            <canvas id="pdf-canvas" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; display: none;"></canvas>
+                            <div id="pdf-loading" style="padding: 50px; color: #666;">Loading PDF...</div>
+                            <div id="pdf-error" style="padding: 50px; color: #d32f2f; display: none;">
+                                Error loading PDF. <a href="../Resume/Rafael_Delwart_CV.pdf" target="_blank">Click here to view PDF directly</a>
+                            </div>
+                        </div>
                         <footer>
-                            <a href="javascript:void(0)" onclick="openPdfFullScreen('docs/assets/Resume.pdf')"
-                                class="button alt">Download PDF</a>
+                            <a href="../Resume/Rafael_Delwart_CV.pdf" class="button alt" download="Rafael_Delwart_CV.pdf">Download PDF</a>
                         </footer>
                     </section>
                 </div>
@@ -683,14 +688,22 @@
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece121" target="_blank">ECE121</a>
                                 – Design and use of microcontroller-based systems and interfacing with analog and
                                 digital systems.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece129a" target="_blank">ECE129A</a>
+                                – Capstone Project I: First of a three-course sequence where students apply knowledge and skills to complete a major design project. Covers engineering design cycle, team practices, and project specification and planning.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece129b" target="_blank">ECE129B</a>
+                                – Capstone Project II: Continuation of the capstone project sequence focusing on implementation and development of the design project.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece129c" target="_blank">ECE129C</a>
+                                – Capstone Project III: Final course in the capstone sequence, emphasizing project completion, testing, and presentation.</li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece141" target="_blank">ECE141</a>
-                                – Advanced digital design and hardware implementation.</li>
+                                – Feedback Control Systems: Analysis and design of continuous linear feedback control systems. Covers design by root locus, frequency response, and state space methods with practical applications.</li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece167"
                                     target="_blank">ECE167/L</a> – Use of sensors for temperature, motion, sound, and
                                 light, focusing on digital integration.</li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece171"
                                     target="_blank">ECE171/L</a> – Amplifiers, oscillators, and signal processing with
                                 hands-on lab work.</li>
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece242" target="_blank">ECE242</a>
+                                – Applied Feedback Control: Advanced control design course that explores state space control, discrete time control, and case studies. Students design and implement feedback controllers on real experiments like inverted pendulum systems.</li>
 
                         </ul>
                     </section>
@@ -776,6 +789,72 @@
             <script src="assets/js/breakpoints.min.js"></script>
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
+            
+            <!-- PDF.js for PDF rendering -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+            
+            <!-- PDF to Image conversion script -->
+            <script>
+                // Set the workerSrc for PDF.js
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+                async function renderPdfAsImage() {
+                    const canvas = document.getElementById('pdf-canvas');
+                    const loadingDiv = document.getElementById('pdf-loading');
+                    const errorDiv = document.getElementById('pdf-error');
+                    
+                    try {
+                        // Load the PDF
+                        const pdf = await pdfjsLib.getDocument('../Resume/Rafael_Delwart_CV.pdf').promise;
+                        
+                        // Get the first page
+                        const page = await pdf.getPage(1);
+                        
+                        // Set the scale for high quality rendering
+                        const scale = 2.0;
+                        const viewport = page.getViewport({ scale: scale });
+                        
+                        // Set canvas dimensions
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+                        
+                        // Render the page
+                        const context = canvas.getContext('2d');
+                        const renderContext = {
+                            canvasContext: context,
+                            viewport: viewport
+                        };
+                        
+                        await page.render(renderContext).promise;
+                        
+                        // Hide loading, show canvas
+                        loadingDiv.style.display = 'none';
+                        canvas.style.display = 'block';
+                        
+                    } catch (error) {
+                        console.error('Error rendering PDF:', error);
+                        loadingDiv.style.display = 'none';
+                        errorDiv.style.display = 'block';
+                    }
+                }
+
+                // Load PDF when CV tab is shown
+                function showTab(tabId) {
+                    // Hide all tab content
+                    document.querySelectorAll('.tab-content').forEach(function (tab) {
+                        tab.style.display = 'none';
+                    });
+
+                    // Show the selected tab
+                    document.getElementById(tabId).style.display = 'block';
+                    
+                    // If CV tab is shown, render the PDF
+                    if (tabId === 'cv') {
+                        // Small delay to ensure the tab is visible
+                        setTimeout(renderPdfAsImage, 100);
+                    }
+                }
+            </script>
             <!-- JavaScript to handle visibility (for learn more tabs)-->
             <script>
                 // Function to show a detailed project section
@@ -800,19 +879,6 @@
 
                     // Show the main Projects tab
                     document.getElementById('projects').style.display = 'block';  // Show the main project list
-                }
-            </script>
-
-            <script>
-                // Function to switch between different tabs (Home, CV, Projects, Courses)
-                function showTab(tabId) {
-                    // Hide all tab content
-                    document.querySelectorAll('.tab-content').forEach(function (tab) {
-                        tab.style.display = 'none';  // Hide all tabs
-                    });
-
-                    // Show the selected tab
-                    document.getElementById(tabId).style.display = 'block';  // Show only the selected tab
                 }
             </script>
 
