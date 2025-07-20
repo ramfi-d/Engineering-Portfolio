@@ -804,8 +804,12 @@
                     const errorDiv = document.getElementById('pdf-error');
                     
                     try {
+                        console.log('Attempting to load PDF from: Resume/Rafael_Delwart_CV.pdf');
+                        
                         // Load the PDF
                         const pdf = await pdfjsLib.getDocument('Resume/Rafael_Delwart_CV.pdf').promise;
+                        
+                        console.log('PDF loaded successfully');
                         
                         // Get the first page
                         const page = await pdf.getPage(1);
@@ -827,12 +831,15 @@
                         
                         await page.render(renderContext).promise;
                         
+                        console.log('PDF rendered successfully');
+                        
                         // Hide loading, show canvas
                         loadingDiv.style.display = 'none';
                         canvas.style.display = 'block';
                         
                     } catch (error) {
                         console.error('Error rendering PDF:', error);
+                        console.error('Error details:', error.message);
                         loadingDiv.style.display = 'none';
                         errorDiv.style.display = 'block';
                     }
