@@ -5,301 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rafael Delwart</title>
+    
+    <!-- External CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
-    <style>
-        /* Basic styling for tabs */
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /*<!-- CSS to style the Contact Section --> */
-        #contact {
-            text-align: center;
-            padding: 30px;
-            background-color: #f4f4f4;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        #contact h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        #contact p {
-            font-size: 1.1em;
-            margin-bottom: 25px;
-            color: #555;
-        }
-
-        .contact-info {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 25px;
-        }
-
-        .contact-info li {
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            color: #555;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-info li i {
-            margin-right: 10px;
-            color: #3498db;
-            font-size: 1.4em;
-        }
-
-        .contact-info li a {
-            text-decoration: none;
-            color: #3498db;
-        }
-
-        .contact-info li a:hover {
-            text-decoration: underline;
-        }
-
-        /* Email wrapper to ensure alignment */
-
-        .email-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: nowrap;
-        }
-
-        .email {
-            font-size: 0.6em;
-            /* Smaller font size for the email addresses */
-        }
-
-        /* Reduce the font size of emails and separator */
-        .email,
-        .separator {
-            font-size: 0.9em;
-            /* Decrease the font size for email and separator */
-        }
-
-        .separator {
-            margin: 0 5px;
-            color: #555;
-        }
-
-        .button.alt {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .button.alt:hover {
-            background-color: #2980b9;
-        }
-
-
-        /*<!-- CSS to style the project grid --> */
-        .project-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .project-card {
-            flex: 1 1 30%;
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-        }
-
-        .project-card h3 a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        .project-card p {
-            margin: 10px 0;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 15px;
-            background-color: #007BFF;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Hide all tab content by default */
-        .tab-content {
-            display: none;
-        }
-
-
-        /* Format images for Project Details */
-        .responsive-img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Format smaller images for Project Details */
-        .responsive-img-smaller {
-            max-width: 75%;
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-
-        /* To center the video box for the Autonmous Bot Project  */
-
-        .video-container-autonmous-bot {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Container Styling for Lab Report */
-        .lab-report-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Box Styling for Lab Report */
-        .lab-report-box {
-            padding: 20px;
-            background-color: #f4f4f4;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        /* PDF Thumbnail Styling for Lab Report */
-        .lab-report-thumbnail {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .lab-report-thumbnail:hover {
-            transform: scale(1.05);
-        }
-
-        /* Button Styling for Lab Report */
-        .lab-report-button.alt {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .lab-report-button.alt:hover {
-            background-color: #2980b9;
-        }
-
-
-        .gif-image {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            /* Centers the GIF horizontally */
-            border: 2px solid #ddd;
-            border-radius: 8px;
-        }
-
-        .course-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .course-list li {
-            margin: 10px 0;
-        }
-
-        .course-list li a {
-            text-decoration: none;
-            color: #3498db;
-            font-weight: bold;
-        }
-
-        .course-list li a:hover {
-            text-decoration: underline;
-        }
-
-        .box h3 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-
-        .box h3 i {
-            margin-right: 10px;
-        }
-
-        .icon {
-            font-size: 1.2em;
-        }
-
-        .box {
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            background: #f9f9f9;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body class="homepage is-preload">
     <div id="page-wrapper">
         <!-- Header -->
         <section id="header">
-
             <!-- Navigation (Tabs) -->
             <nav id="nav">
                 <ul>
@@ -315,92 +31,95 @@
         <section id="main">
             <!-- Home Tab -->
             <div id="home" class="tab-content active">
-                <section id="banner">
-                    <header>
-                        <h2>Rafael Delwart</h2>
-                        <p>Robotics Engineer at Baskin School of Engineering UCSC</p>
-                    </header>
-                </section>
+                <!-- Home Tab Content -->
+<section id="banner">
+    <header>
+        <h2>Rafael Delwart</h2>
+        <p>Robotics Engineer at Baskin School of Engineering UCSC</p>
+    </header>
+</section>
 
-                <section>
-                    <header class="major">
-                        <h2>My Portfolio</h2>
-                    </header>
+<section>
+    <header class="major">
+        <h2>My Portfolio</h2>
+    </header>
 
-                    <div class="row">
-                        <!-- Project 1 Container -->
-                        <div class="col-4 col-6-medium col-12-small" id="project1-container">
-                        </div>
+    <div class="row">
+        <!-- Project 1 Container -->
+        <div class="col-4 col-6-medium col-12-small" id="project1-container">
+        </div>
 
-                        <!-- Project 2 Container -->
-                        <div class="col-4 col-6-medium col-12-small" id="project2-container">
-                        </div>
+        <!-- Project 2 Container -->
+        <div class="col-4 col-6-medium col-12-small" id="project2-container">
+        </div>
 
-                        <!-- Project 3 Container -->
-                        <div class="col-4 col-6-medium col-12-small" id="project3-container">
-                        </div>
-                    </div>
-                </section>
+        <!-- Project 3 Container -->
+        <div class="col-4 col-6-medium col-12-small" id="project3-container">
+        </div>
+    </div>
+</section>
 
-                <!-- Contact Me Section -->
-                <section id="contact" class="box">
-                    <header>
-                        <h2>Contact me</h2>
-                    </header>
+<!-- Contact Me Section -->
+<section id="contact" class="box">
+    <header>
+        <h2>Contact me</h2>
+    </header>
 
-                    <ul class="contact-info">
-                        <li><i class="icon solid fa-phone"></i> <strong>Phone:</strong> +1 (415) 802-5537</li>
-                        <li>
-                            <i class="icon solid fa-envelope"></i> <strong>Email:</strong>
-                            <div class="email-wrapper">
-                                <a href="mailto:Rdelwart@ucsc.edu" class="email">Rdelwart@ucsc.edu</a> (University)
-                                <span class="separator">•</span>
-                                <a href="mailto:Radelwart@gmail.com" class="email">Radelwart@gmail.com</a> (Personal)
-                            </div>
-                        </li>
-                        <li><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a
-                                href="https://www.linkedin.com/in/rafael-delwart-062471287/"
-                                target="_blank">linkedin.com/in/rafael-delwart</a></li>
-                        <li><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/ramfi-d"
-                                target="_blank">github.com/ramfi-d</a></li>
-                    </ul>
+    <ul class="contact-info">
+        <li><i class="icon solid fa-phone"></i> <strong>Phone:</strong> +1 (415) 802-5537</li>
+        <li>
+            <i class="icon solid fa-envelope"></i> <strong>Email:</strong>
+            <div class="email-wrapper">
+                <a href="mailto:Rdelwart@ucsc.edu" class="email">Rdelwart@ucsc.edu</a> (University)
+                <span class="separator">•</span>
+                <a href="mailto:Radelwart@gmail.com" class="email">Radelwart@gmail.com</a> (Personal)
+            </div>
+        </li>
+        <li><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a
+                href="https://www.linkedin.com/in/rafael-delwart-062471287/"
+                target="_blank">linkedin.com/in/rafael-delwart</a></li>
+        <li><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/ramfi-d"
+                target="_blank">github.com/ramfi-d</a></li>
+    </ul>
 
-                    <footer>
-                        <a href="Resume/Rafael_Delwart_CV.pdf" class="button alt" download="Rafael_Delwart_CV.pdf">Download My CV</a>
-                    </footer>
-                </section>
+    <footer>
+        <a href="Resume/Rafael_Delwart_CV.pdf" class="button alt" download="Rafael_Delwart_CV.pdf">Download My CV</a>
+    </footer>
+</section>
             </div>
 
             <!-- CV Tab -->
             <div id="cv" class="tab-content">
-                <div class="container">
-                    <section class="box">
-                        <div class="pdf-preview" style="width: 100%; text-align: center;">
-                            <!-- Try PDF.js first, fallback to iframe -->
-                            <canvas id="pdf-canvas" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; display: none;"></canvas>
-                            <iframe id="pdf-fallback" src="Resume/Rafael_Delwart_CV.pdf" style="width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 5px; display: none;"></iframe>
-                            <div id="pdf-loading" style="padding: 50px; color: #666;">Loading PDF...</div>
-                            <div id="pdf-error" style="padding: 50px; color: #d32f2f; display: none;">
-                                Error loading PDF. <a href="Resume/Rafael_Delwart_CV.pdf" target="_blank">Click here to view PDF directly</a>
-                            </div>
-                        </div>
-                        <footer>
-                            <a href="Resume/Rafael_Delwart_CV.pdf" class="button alt" download="Rafael_Delwart_CV.pdf">Download PDF</a>
-                        </footer>
-                    </section>
-                </div>
+                <!-- CV Tab Content -->
+<div class="container">
+    <section class="box">
+        <div class="pdf-preview" style="width: 100%; text-align: center;">
+            <!-- Try PDF.js first, fallback to iframe -->
+            <canvas id="pdf-canvas" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; display: none;"></canvas>
+            <iframe id="pdf-fallback" src="Resume/Rafael_Delwart_CV.pdf" style="width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 5px; display: none;"></iframe>
+            <div id="pdf-loading" style="padding: 50px; color: #666;">Loading PDF...</div>
+            <div id="pdf-error" style="padding: 50px; color: #d32f2f; display: none;">
+                Error loading PDF. <a href="Resume/Rafael_Delwart_CV.pdf" target="_blank">Click here to view PDF directly</a>
+            </div>
+        </div>
+        <footer>
+            <a href="Resume/Rafael_Delwart_CV.pdf" class="button alt" download="Rafael_Delwart_CV.pdf">Download PDF</a>
+        </footer>
+    </section>
+</div>
             </div>
 
             <!-- Projects Tab -->
             <div id="projects" class="tab-content">
-                <div class="container">
-                    <h2>My Projects</h2>
+                <!-- Projects Tab Content -->
+<div class="container">
+    <h2>My Projects</h2>
 
-                    <!-- Project Grid Container (Projects will be inserted here) -->
-                    <div class="row" id="projects-container">
-                        <!-- JavaScript will dynamically insert project cards here -->
-                    </div>
-                </div>
+    <!-- Project Grid Container (Projects will be inserted here) -->
+    <div class="row" id="projects-container">
+        <!-- JavaScript will dynamically insert project cards here -->
+    </div>
+</div>
             </div>
 
             <!-- Detailed Project Sections (hidden by default) -->
@@ -464,12 +183,12 @@
 
                             For the positive voltage rail, R1 and R2 create a voltage divider. R1 is a fixed
                             resistor, while R2 is a 5k potentiometer that adjusts the output voltage. R7, which is in
-                            parallel with R2, fine-tunes the adjustment range of R2. This simnple addition allows finer
+                            parallel with R2, fine-tunes the adjustment range of R2. This simple addition allows finer
                             control over the output voltage.
 
                             For LM337 (negative voltage rail), R4 and R3 create a similar voltage divider with R5 for
                             finer control.
-                            R6 sets the lower bound for the newgative rail at about -3V.
+                            R6 sets the lower bound for the negative rail at about -3V.
 
                             The final output of this power supply can be fine-tuned to provide adjustable voltages in
                             the range of approximately +/- 3V to +/- 16V
@@ -519,7 +238,7 @@
                     <div class="lab-report-container">
                         <section class="lab-report-box">
                             <header>
-                                <h2>Detailed Report: Autonmous Roach</h2>
+                                <h2>Detailed Report: Autonomous Roach</h2>
                             </header>
 
                             <!-- PDF Thumbnail / Preview (Link to open PDF) -->
@@ -536,8 +255,6 @@
                         </section>
                     </div>
 
-
-
                     <!-- Return to Projects Button -->
                     <a href="#" class="button" onclick="showProjects()">Return to Projects</a>
                 </div>
@@ -548,7 +265,6 @@
             <div id="project3-details" class="tab-content" style="display:none;">
                 <div class="container">
                     <h2>Rock Climbing Tracker</h2>
-                    <!-- Add detailed content for project 4 -->
 
                     <img src="assets/displacementXAnimation.gif" alt="X axis displacement of 1 meter" class="gif-image">
                     <p>This project involved development and testing of an activity classification system designed to
@@ -605,7 +321,6 @@
                         </div>
                     </div>
 
-
                     <!-- Return to Projects Button -->
                     <a href="#" class="button" onclick="showProjects()">Return to Projects</a>
                 </div>
@@ -616,7 +331,6 @@
             <div id="project4-details" class="tab-content" style="display:none;">
                 <div class="container">
                     <h2>Project Title 4</h2>
-                    <!-- Add detailed content for project 4 -->
                     <p>Details of project 4 go here...</p>
 
                     <!-- Return to Projects Button -->
@@ -628,8 +342,7 @@
             <div id="project5-details" class="tab-content" style="display:none;">
                 <div class="container">
                     <h2>Autonomous Ball-Collecting Robot</h2>
-                    <!-- Add detailed content for project 5 -->
-                    <p>DUnder the guidance of Professor Gabriel Hugh Elkaim, our team, including Ana Elizabeth Villa and
+                    <p>Under the guidance of Professor Gabriel Hugh Elkaim, our team, including Ana Elizabeth Villa and
                         Rafael Delwart, developed an autonomous robot as part of the final lab in Mechatronics
                         (ECE-118). Tasked with navigating a game field, the robot locates, traps, and deposits 25mm
                         chrome balls either within itself or onto the opponent's field. Our design, "The Roller,"
@@ -642,7 +355,7 @@
                     <div class="lab-report-container">
                         <section class="lab-report-box">
                             <header>
-                                <h2>Detailed Report: Autonmous Ball-Collecting Robot</h2>
+                                <h2>Detailed Report: Autonomous Ball-Collecting Robot</h2>
                             </header>
 
                             <!-- PDF Thumbnail / Preview (Link to open PDF) -->
@@ -778,255 +491,26 @@
                     </section>
                 </div>
             </div>
+        </section>
+    </div>
 
+    <!-- External JavaScript Libraries -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- PDF.js for PDF rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    
+    <!-- Custom JavaScript Files -->
+    <script src="assets/js/projects.js"></script>
+    <script src="assets/js/pdf-handler.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/project-manager.js"></script>
 
-            <!-- Import Font Awesome for Icons (Add to the head section if needed) -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-
-            <!-- Scripts -->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/jquery.dropotron.min.js"></script>
-            <script src="assets/js/browser.min.js"></script>
-            <script src="assets/js/breakpoints.min.js"></script>
-            <script src="assets/js/util.js"></script>
-            <script src="assets/js/main.js"></script>
-            
-            <!-- PDF.js for PDF rendering -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-            
-            <!-- PDF to Image conversion script -->
-            <script>
-                // Set the workerSrc for PDF.js
-                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-                async function renderPdfAsImage() {
-                    const canvas = document.getElementById('pdf-canvas');
-                    const loadingDiv = document.getElementById('pdf-loading');
-                    const errorDiv = document.getElementById('pdf-error');
-                    const fallbackIframe = document.getElementById('pdf-fallback');
-                    
-                    try {
-                        console.log('Attempting to load PDF from: Resume/Rafael_Delwart_CV.pdf');
-                        
-                        // Load the PDF
-                        const pdf = await pdfjsLib.getDocument('Resume/Rafael_Delwart_CV.pdf').promise;
-                        
-                        console.log('PDF loaded successfully');
-                        
-                        // Get the first page
-                        const page = await pdf.getPage(1);
-                        
-                        // Set the scale for high quality rendering
-                        const scale = 2.0;
-                        const viewport = page.getViewport({ scale: scale });
-                        
-                        // Set canvas dimensions
-                        canvas.width = viewport.width;
-                        canvas.height = viewport.height;
-                        
-                        // Render the page
-                        const context = canvas.getContext('2d');
-                        const renderContext = {
-                            canvasContext: context,
-                            viewport: viewport
-                        };
-                        
-                        await page.render(renderContext).promise;
-                        
-                        console.log('PDF rendered successfully');
-                        
-                        // Hide loading, show canvas
-                        loadingDiv.style.display = 'none';
-                        canvas.style.display = 'block';
-                        
-                    } catch (error) {
-                        console.error('Error rendering PDF with PDF.js:', error);
-                        console.log('Falling back to iframe...');
-                        
-                        // Fallback to iframe
-                        loadingDiv.style.display = 'none';
-                        fallbackIframe.style.display = 'block';
-                        
-                        // If iframe also fails, show error
-                        fallbackIframe.onerror = function() {
-                            console.error('Iframe fallback also failed');
-                            fallbackIframe.style.display = 'none';
-                            errorDiv.style.display = 'block';
-                        };
-                    }
-                }
-
-                // Load PDF when CV tab is shown
-                function showTab(tabId) {
-                    // Hide all tab content
-                    document.querySelectorAll('.tab-content').forEach(function (tab) {
-                        tab.style.display = 'none';
-                    });
-
-                    // Show the selected tab
-                    document.getElementById(tabId).style.display = 'block';
-                    
-                    // If CV tab is shown, render the PDF
-                    if (tabId === 'cv') {
-                        // Small delay to ensure the tab is visible
-                        setTimeout(renderPdfAsImage, 100);
-                    }
-                }
-            </script>
-            <!-- JavaScript to handle visibility (for learn more tabs)-->
-            <script>
-                // Function to show a detailed project section
-                function showDetails(projectId) {
-                    // Hide all tab content
-                    document.querySelectorAll('.tab-content').forEach(function (section) {
-                        section.style.display = 'none';  // Hide all tabs
-                    });
-
-                    // Show the selected project details
-                    document.getElementById(projectId).style.display = 'block';  // Show only the selected project details
-                }
-            </script>
-
-            <script>
-                // Function to return to the main Projects tab
-                function showProjects() {
-                    // Hide all tab content
-                    document.querySelectorAll('.tab-content').forEach(function (section) {
-                        section.style.display = 'none';  // Hide all detailed sections
-                    });
-
-                    // Show the main Projects tab
-                    document.getElementById('projects').style.display = 'block';  // Show the main project list
-                }
-            </script>
-
-
-
-            <script>
-                // Function to open PDF in fullscreen
-                function openPdfFullScreen(url) {
-                    var win = window.open(url, '_blank');
-                    win.focus();
-                }
-            </script>
-
-
-
-            <!-- JavaScript Array and Code to Generate Project Cards -->
-            <script>
-                // Array holding project data
-                const projects = [
-                    {
-                        id: 'project1-details',
-                        imgSrc: 'images/Voltage_Supply_Project_BreadBoard.jpeg',
-                        alt: 'General Purpose Adjustable Bipolar DC Voltage Supply',
-                        title: 'General Purpose Adjustable Bipolar DC Voltage Supply',
-                        description: 'This is a stable and adjustable power supply delivering up to 250mA. Utilizes 3-terminal linear voltage regulators and half-wave rectifiers.'
-                    },
-                    {
-                        id: 'project2-details',
-                        imgSrc: 'images/RoachImage.jpeg',
-                        alt: 'Event Service Framework for an Autonomous Robot',
-                        title: 'Event Service Framework for an Autonomous Robot',
-                        description: 'The project focuses on writing embedded software for event-driven control of the robot, modeled after a Roach, using an Event Service Framework.'
-                    },
-                    {
-                        id: 'project3-details',
-                        imgSrc: 'images/Rock_Climbing_Tracker_Test.jpeg',
-                        alt: 'Rock Climbing Tracker',
-                        title: 'Rock Climbing Tracker',
-                        description: 'Uses a 9-DOF IMU sensor data to track 3-D displacement and graph the movement using MatLab'
-                    },
-                    {
-                        id: 'project4-details',
-                        imgSrc: 'images/BaysisOsmosisGame.jpeg',
-                        alt: 'Osmosis game using BASYS3 board and Verilog',
-                        title: 'Osmosis game using BASYS3 board and Verilog',
-                        description: 'This interactive game, uses a BASYS3 board and VGA monitor to simulate the movement of red and blue molecules across a membrane allowing the player to sort the molecules by chanign the color of the memebrane. Utilizing Verilog for game logic, the design challenges included generating VGA signals, manipulating RGB data, and implementing responsive game controls via physical buttons on the board.'
-
-                    },
-                    {
-                        id: 'project5-details',
-                        imgSrc: 'images/Autonomous_Robot_Mechatronics.jpg',
-                        alt: 'Autonomous Ball-Collecting Robot',
-                        title: 'Autonomous Ball-Collecting Robot',
-                        description: 'Designed and built for the ECE-118 Mechatronics course under Professor Gabriel Hugh Elkaim, this autonomous robot navigates a designated field to collect and deposit 25mm chrome balls, utilizing bumpers and tape sensors for precise movement and effective ball handling within a competitive two-minute round.'
-                    }
-
-
-                ];
-
-                // Function to dynamically generate and display all projects in the Projects tab
-                function generateProjects() {
-                    const projectContainer = document.getElementById('projects-container'); // Container for projects
-                    let projectHTML = '';
-
-                    projects.forEach(project => {
-                        projectHTML += `
-                <div class="col-4 col-6-medium col-12-small">
-                    <section class="box">
-                        <a href="#" class="image featured" onclick="showDetails('${project.id}')">
-                            <img src="${project.imgSrc}" alt="${project.alt}">
-                        </a>
-                        <header>
-                            <h3><a href="#" onclick="showDetails('${project.id}')">${project.title}</a></h3>
-                        </header>
-                        <p>${project.description}</p>
-                        <footer>
-                            <a href="#" class="button alt" onclick="showDetails('${project.id}')">Learn More</a>
-                        </footer>
-                    </section>
-                </div>
-            `;
-                    });
-
-                    // Insert generated HTML into the container
-                    projectContainer.innerHTML = projectHTML;
-                }
-                // Call the function to generate projects when the page loads in the porjects tab
-                document.addEventListener('DOMContentLoaded', generateProjects);
-
-
-                // Function to display a single project based on input (ID or index)
-                function displaySingleProject(projectId, containerId) {
-                    const projectContainer = document.getElementById(containerId);
-                    let projectHTML = '';
-
-                    // Find the project based on the given project ID
-                    const project = projects.find(proj => proj.id === projectId);
-
-                    if (project) {
-                        projectHTML += `
-                    <div class="col-12">
-                        <section class="box">
-                            <a href="#" class="image featured" onclick="showDetails('${project.id}')">
-                                <img src="${project.imgSrc}" alt="${project.alt}">
-                            </a>
-                            <header>
-                                <h3><a href="#" onclick="showDetails('${project.id}')">${project.title}</a></h3>
-                            </header>
-                            <p>${project.description}</p>
-                            <footer>
-                                <a href="#" class="button alt" onclick="showDetails('${project.id}')">Learn More</a>
-                            </footer>
-                        </section>
-                    </div>
-                `;
-                    } else {
-                        projectHTML = '<p>Project not found.</p>';
-                    }
-
-                    // Insert the single project's HTML into the container
-                    projectContainer.innerHTML = projectHTML;
-                }
-
-                // Call the function to generate 3 different projects in the main tab
-                document.addEventListener('DOMContentLoaded', function () {
-                    displaySingleProject('project1-details', 'project1-container');
-                    displaySingleProject('project2-details', 'project2-container');
-                    displaySingleProject('project3-details', 'project3-container');
-                });    </script>
 </body>
 
 </html>

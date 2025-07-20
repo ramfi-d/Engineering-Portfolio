@@ -1,0 +1,17 @@
+<!-- CV Tab Content -->
+<div class="container">
+    <section class="box">
+        <div class="pdf-preview" style="width: 100%; text-align: center;">
+            <!-- Try PDF.js first, fallback to iframe -->
+            <canvas id="pdf-canvas" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; display: none;"></canvas>
+            <iframe id="pdf-fallback" src="Resume/Rafael_Delwart_CV.pdf" style="width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 5px; display: none;"></iframe>
+            <div id="pdf-loading" style="padding: 50px; color: #666;">Loading PDF...</div>
+            <div id="pdf-error" style="padding: 50px; color: #d32f2f; display: none;">
+                Error loading PDF. <a href="Resume/Rafael_Delwart_CV.pdf" target="_blank">Click here to view PDF directly</a>
+            </div>
+        </div>
+        <footer>
+            <a href="Resume/Rafael_Delwart_CV.pdf" class="button alt" download="Rafael_Delwart_CV.pdf">Download PDF</a>
+        </footer>
+    </section>
+</div>

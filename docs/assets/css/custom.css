@@ -1,0 +1,272 @@
+/* Custom CSS for Rafael Delwart Portfolio Website */
+
+/* ===== BASIC TAB FUNCTIONALITY ===== */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ===== CONTACT SECTION STYLING ===== */
+#contact {
+    text-align: center;
+    padding: 30px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#contact h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#contact p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.contact-info {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+}
+
+.contact-info li {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info li i {
+    margin-right: 10px;
+    color: #3498db;
+    font-size: 1.4em;
+}
+
+.contact-info li a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+.contact-info li a:hover {
+    text-decoration: underline;
+}
+
+/* Email wrapper to ensure alignment */
+.email-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+.email {
+    font-size: 0.6em;
+}
+
+/* Reduce the font size of emails and separator */
+.email,
+.separator {
+    font-size: 0.9em;
+}
+
+.separator {
+    margin: 0 5px;
+    color: #555;
+}
+
+.button.alt {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button.alt:hover {
+    background-color: #2980b9;
+}
+
+/* ===== PROJECT GRID STYLING ===== */
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-card {
+    flex: 1 1 30%;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.project-card h3 a {
+    text-decoration: none;
+    color: #333;
+}
+
+.project-card p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* ===== PROJECT DETAIL IMAGES ===== */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.responsive-img-smaller {
+    max-width: 75%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== VIDEO CONTAINER ===== */
+.video-container-autonmous-bot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== LAB REPORT STYLING ===== */
+.lab-report-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.lab-report-box {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.lab-report-thumbnail {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.lab-report-thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.lab-report-button.alt {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.lab-report-button.alt:hover {
+    background-color: #2980b9;
+}
+
+/* ===== GIF STYLING ===== */
+.gif-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+
+/* ===== COURSE LIST STYLING ===== */
+.course-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.course-list li {
+    margin: 10px 0;
+}
+
+.course-list li a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.course-list li a:hover {
+    text-decoration: underline;
+}
+
+/* ===== BOX STYLING ===== */
+.box h3 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.box h3 i {
+    margin-right: 10px;
+}
+
+.icon {
+    font-size: 1.2em;
+}
+
+.box {
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
