@@ -9,32 +9,10 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Meta tags for better SEO -->
-    <meta name="description" content="Rafael Delwart - Robotics Engineer and Student at UCSC Baskin School of Engineering. Portfolio showcasing projects in autonomous systems, control systems, and embedded programming.">
-    <meta name="keywords" content="Rafael Delwart, Robotics Engineer, UCSC, Embedded Systems, Autonomous Robots, Control Systems, Mechatronics">
-    <meta name="author" content="Rafael Delwart">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body class="homepage is-preload">
-    <!-- Loading Screen -->
-    <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #2c3e50, #3498db); z-index: 9999; display: flex; justify-content: center; align-items: center; color: white;">
-        <div style="text-align: center;">
-            <div style="width: 60px; height: 60px; border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid white; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
-            <h2 style="margin: 0; font-weight: 300;">Loading Portfolio...</h2>
-        </div>
-    </div>
-    
-    <style>
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
     <div id="page-wrapper">
         <!-- Header -->
         <section id="header">
@@ -57,18 +35,13 @@
 <section id="banner">
     <header>
         <h2>Rafael Delwart</h2>
-        <p>Robotics Engineer • UCSC Baskin School of Engineering</p>
-        <div style="margin-top: 30px;">
-            <a href="#" onclick="showTab('projects')" class="button alt" style="margin: 0 10px;">View Projects</a>
-            <a href="#" onclick="showTab('cv')" class="button alt" style="margin: 0 10px;">Download CV</a>
-        </div>
+        <p>Robotics Engineer at Baskin School of Engineering UCSC</p>
     </header>
 </section>
 
 <section>
-    <header class="major" style="text-align: center; margin-bottom: 40px;">
-        <h2>Featured Projects</h2>
-        <p style="color: #7f8c8d; font-size: 1.1em; max-width: 600px; margin: 0 auto;">Explore my work in autonomous systems, control theory, and embedded programming</p>
+    <header class="major">
+        <h2>My Portfolio</h2>
     </header>
 
     <div class="row">
@@ -83,12 +56,6 @@
         <!-- Project 3 Container -->
         <div class="col-4 col-6-medium col-12-small" id="project3-container">
         </div>
-    </div>
-    
-    <div style="text-align: center; margin-top: 40px;">
-        <a href="#" onclick="showTab('projects')" class="button" style="padding: 15px 30px; font-size: 1.1em;">
-            <i class="fas fa-arrow-right" style="margin-left: 10px;"></i> View All Projects
-        </a>
     </div>
 </section>
 
@@ -123,70 +90,36 @@
 
             <!-- CV Tab -->
             <div id="cv" class="tab-content">
-                <div class="container">
-                    <header style="text-align: center; margin-bottom: 40px;">
-                        <h2 style="color: #2c3e50; font-size: 2.5em; margin-bottom: 15px;">
-                            <i class="fas fa-file-pdf" style="color: #e74c3c; margin-right: 15px;"></i>
-                            Curriculum Vitae
-                        </h2>
-                        <p style="color: #7f8c8d; font-size: 1.2em;">Download my latest resume or view it below</p>
-                    </header>
-                    
-                    <section class="box">
-                        <div class="pdf-preview" style="width: 100%; text-align: center;">
-                            <!-- Try PDF.js first, fallback to iframe -->
-                            <canvas id="pdf-canvas" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; display: none;"></canvas>
-                            <iframe id="pdf-fallback" src="Resume/Rafael_Delwart_CV.pdf" style="width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 5px; display: none;"></iframe>
-                            <div id="pdf-loading" style="padding: 50px; color: #666;">
-                                <div style="display: inline-block; width: 40px; height: 40px; border: 3px solid #f3f3f3; border-top: 3px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
-                                <br>Loading PDF...
-                            </div>
-                            <div id="pdf-error" style="padding: 50px; color: #d32f2f; display: none;">
-                                <i class="fas fa-exclamation-triangle" style="font-size: 2em; margin-bottom: 15px; display: block;"></i>
-                                Error loading PDF. <a href="Resume/Rafael_Delwart_CV.pdf" target="_blank">Click here to view PDF directly</a>
-                            </div>
-                        </div>
-                        <footer style="text-align: center; padding-top: 30px;">
-                            <a href="Resume/Rafael_Delwart_CV.pdf" class="button alt" download="Rafael_Delwart_CV.pdf" style="margin: 0 10px;">
-                                <i class="fas fa-download" style="margin-right: 8px;"></i>Download PDF
-                            </a>
-                            <a href="Resume/Rafael_Delwart_CV.pdf" target="_blank" class="button" style="margin: 0 10px;">
-                                <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i>Open in New Tab
-                            </a>
-                        </footer>
-                    </section>
-                </div>
+                <!-- CV Tab Content -->
+<div class="container">
+    <section class="box">
+        <div class="pdf-preview" style="width: 100%; text-align: center;">
+            <!-- Try PDF.js first, fallback to iframe -->
+            <canvas id="pdf-canvas" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; display: none;"></canvas>
+            <iframe id="pdf-fallback" src="Resume/Rafael_Delwart_CV.pdf" style="width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 5px; display: none;"></iframe>
+            <div id="pdf-loading" style="padding: 50px; color: #666;">Loading PDF...</div>
+            <div id="pdf-error" style="padding: 50px; color: #d32f2f; display: none;">
+                Error loading PDF. <a href="Resume/Rafael_Delwart_CV.pdf" target="_blank">Click here to view PDF directly</a>
+            </div>
+        </div>
+        <footer>
+            <a href="Resume/Rafael_Delwart_CV.pdf" class="button alt" download="Rafael_Delwart_CV.pdf">Download PDF</a>
+        </footer>
+    </section>
+</div>
             </div>
 
             <!-- Projects Tab -->
             <div id="projects" class="tab-content">
-                <div class="container">
-                    <header style="text-align: center; margin-bottom: 50px;">
-                        <h2 style="color: #2c3e50; font-size: 2.5em; margin-bottom: 15px;">
-                            <i class="fas fa-cogs" style="color: #3498db; margin-right: 15px;"></i>
-                            My Projects
-                        </h2>
-                        <p style="color: #7f8c8d; font-size: 1.2em; max-width: 700px; margin: 0 auto;">
-                            A collection of engineering projects spanning autonomous systems, control theory, embedded programming, and digital design
-                        </p>
-                    </header>
+                <!-- Projects Tab Content -->
+<div class="container">
+    <h2>My Projects</h2>
 
-                    <!-- Project Grid Container (Projects will be inserted here) -->
-                    <div class="row" id="projects-container" style="margin-bottom: 40px;">
-                        <!-- JavaScript will dynamically insert project cards here -->
-                    </div>
-                    
-                    <div style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; margin-top: 40px;">
-                        <h3 style="color: #2c3e50; margin-bottom: 15px;">
-                            <i class="fas fa-lightbulb" style="color: #f39c12; margin-right: 10px;"></i>
-                            Interested in Collaboration?
-                        </h3>
-                        <p style="color: #7f8c8d; margin-bottom: 25px;">I'm always open to discussing new projects and opportunities</p>
-                        <a href="#" onclick="showTab('home')" class="button alt">
-                            <i class="fas fa-envelope" style="margin-right: 8px;"></i>Get In Touch
-                        </a>
-                    </div>
-                </div>
+    <!-- Project Grid Container (Projects will be inserted here) -->
+    <div class="row" id="projects-container">
+        <!-- JavaScript will dynamically insert project cards here -->
+    </div>
+</div>
             </div>
 
             <!-- Detailed Project Sections (hidden by default) -->
@@ -577,71 +510,6 @@
     <script src="assets/js/pdf-handler.js"></script>
     <script src="assets/js/navigation.js"></script>
     <script src="assets/js/project-manager.js"></script>
-
-    <!-- Loading Screen and Initialization -->
-    <script>
-        // Remove loading screen when page is fully loaded
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                const loadingScreen = document.getElementById('loading-screen');
-                if (loadingScreen) {
-                    loadingScreen.style.opacity = '0';
-                    loadingScreen.style.transition = 'opacity 0.5s ease-out';
-                    setTimeout(function() {
-                        loadingScreen.style.display = 'none';
-                    }, 500);
-                }
-            }, 1000); // Small delay to show the loading screen
-        });
-
-        // Add smooth scrolling and enhanced interactions
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add active states to navigation
-            const navLinks = document.querySelectorAll('#nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-
-            // Add intersection observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Observe elements for scroll animations
-            document.querySelectorAll('.box, .project-card, .lab-report-box').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-        });
-
-        // Enhanced tab switching with history
-        function showTabWithHistory(tabId) {
-            showTab(tabId);
-            history.pushState({tab: tabId}, '', `#${tabId}`);
-        }
-
-        // Handle browser back/forward
-        window.addEventListener('popstate', function(event) {
-            if (event.state && event.state.tab) {
-                showTab(event.state.tab);
-            }
-        });
-    </script>
 
 </body>
 
