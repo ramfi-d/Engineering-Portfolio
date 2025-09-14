@@ -58,10 +58,6 @@
     <header>
         <h2>Rafael Delwart</h2>
         <p>Robotics Engineer • UCSC Baskin School of Engineering</p>
-        <div style="margin-top: 30px;">
-            <a href="#" onclick="showTab('projects')" class="button alt" style="margin: 0 10px;">View Projects</a>
-            <a href="#" onclick="showTab('cv')" class="button alt" style="margin: 0 10px;">Download CV</a>
-        </div>
     </header>
 </section>
 
@@ -93,32 +89,34 @@
 </section>
 
 <!-- Contact Me Section -->
-<section id="contact" class="box">
-    <header>
-        <h2>Contact me</h2>
-    </header>
+<div style="width: 100%; margin: 30px 0 0 0;">
+    <section id="contact" class="box">
+        <header>
+            <h2>Contact me</h2>
+        </header>
 
-    <ul class="contact-info">
-        <li><i class="icon solid fa-phone"></i> <strong>Phone:</strong> +1 (415) 802-5537</li>
-        <li>
-            <i class="icon solid fa-envelope"></i> <strong>Email:</strong>
-            <div class="email-wrapper">
-                <a href="mailto:Rdelwart@ucsc.edu" class="email">Rdelwart@ucsc.edu</a> (University)
-                <span class="separator">•</span>
-                <a href="mailto:Radelwart@gmail.com" class="email">Radelwart@gmail.com</a> (Personal)
-            </div>
-        </li>
-        <li><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a
-                href="https://www.linkedin.com/in/rafael-delwart-062471287/"
-                target="_blank">linkedin.com/in/rafael-delwart</a></li>
-        <li><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/ramfi-d"
-                target="_blank">github.com/ramfi-d</a></li>
-    </ul>
+        <ul class="contact-info">
+            <li><i class="icon solid fa-phone"></i> <strong>Phone:</strong> +1 (415) 802-5537</li>
+            <li>
+                <i class="icon solid fa-envelope"></i> <strong>Email:</strong>
+                <div class="email-wrapper">
+                    <a href="mailto:Rdelwart@ucsc.edu" class="email">Rdelwart@ucsc.edu</a> (University)
+                    <span class="separator">•</span>
+                    <a href="mailto:Radelwart@gmail.com" class="email">Radelwart@gmail.com</a> (Personal)
+                </div>
+            </li>
+            <li><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a
+                    href="https://www.linkedin.com/in/rafael-delwart-062471287/"
+                    target="_blank">linkedin.com/in/rafael-delwart</a></li>
+            <li><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/ramfi-d"
+                    target="_blank">github.com/ramfi-d</a></li>
+        </ul>
 
-    <footer>
-        <a href="Resume/Rafael_Delwart_CV.pdf" class="button alt" download="Rafael_Delwart_CV.pdf">Download My CV</a>
-    </footer>
-</section>
+        <footer>
+            <a href="Resume/Rafael_Delwart_CV.pdf" class="button alt" download="Rafael_Delwart_CV.pdf">Download My CV</a>
+        </footer>
+    </section>
+</div>
             </div>
 
             <!-- CV Tab -->
@@ -640,6 +638,32 @@
             if (event.state && event.state.tab) {
                 showTab(event.state.tab);
             }
+        });
+
+        // Hide/show tab bar on scroll
+        let lastScrollTop = 0;
+        let scrollTimeout;
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Clear any existing timeout
+            clearTimeout(scrollTimeout);
+            
+            // Add a small delay to prevent too frequent updates
+            scrollTimeout = setTimeout(function() {
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down - hide header
+                    header.style.transform = 'translateY(-100%)';
+                    header.style.transition = 'transform 0.3s ease-in-out';
+                } else if (scrollTop < lastScrollTop || scrollTop <= 100) {
+                    // Scrolling up or near top - show header
+                    header.style.transform = 'translateY(0)';
+                    header.style.transition = 'transform 0.3s ease-in-out';
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+            }, 10);
         });
     </script>
 
