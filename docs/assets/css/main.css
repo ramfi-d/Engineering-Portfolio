@@ -862,88 +862,88 @@ input, select, textarea {
 						}
 
 				.row.gtr-25 {
-					margin-top: -7.5px;
-					margin-left: -7.5px;
+					margin-top: -12.5px;
+					margin-left: -12.5px;
 				}
 
 					.row.gtr-25 > * {
-						padding: 7.5px 0 0 7.5px;
+						padding: 12.5px 0 0 12.5px;
 					}
 
 					.row.gtr-25.gtr-uniform {
-						margin-top: -7.5px;
+						margin-top: -12.5px;
 					}
 
 						.row.gtr-25.gtr-uniform > * {
-							padding-top: 7.5px;
+							padding-top: 12.5px;
 						}
 
 				.row.gtr-50 {
-					margin-top: -15px;
-					margin-left: -15px;
+					margin-top: -25px;
+					margin-left: -25px;
 				}
 
 					.row.gtr-50 > * {
-						padding: 15px 0 0 15px;
+						padding: 25px 0 0 25px;
 					}
 
 					.row.gtr-50.gtr-uniform {
-						margin-top: -15px;
+						margin-top: -25px;
 					}
 
 						.row.gtr-50.gtr-uniform > * {
-							padding-top: 15px;
+							padding-top: 25px;
 						}
 
 				.row {
-					margin-top: -30px;
-					margin-left: -30px;
+					margin-top: -50px;
+					margin-left: -50px;
 				}
 
 					.row > * {
-						padding: 30px 0 0 30px;
+						padding: 50px 0 0 50px;
 					}
 
 					.row.gtr-uniform {
-						margin-top: -30px;
+						margin-top: -50px;
 					}
 
 						.row.gtr-uniform > * {
-							padding-top: 30px;
+							padding-top: 50px;
 						}
 
 				.row.gtr-150 {
-					margin-top: -45px;
-					margin-left: -45px;
+					margin-top: -75px;
+					margin-left: -75px;
 				}
 
 					.row.gtr-150 > * {
-						padding: 45px 0 0 45px;
+						padding: 75px 0 0 75px;
 					}
 
 					.row.gtr-150.gtr-uniform {
-						margin-top: -45px;
+						margin-top: -75px;
 					}
 
 						.row.gtr-150.gtr-uniform > * {
-							padding-top: 45px;
+							padding-top: 75px;
 						}
 
 				.row.gtr-200 {
-					margin-top: -60px;
-					margin-left: -60px;
+					margin-top: -100px;
+					margin-left: -100px;
 				}
 
 					.row.gtr-200 > * {
-						padding: 60px 0 0 60px;
+						padding: 100px 0 0 100px;
 					}
 
 					.row.gtr-200.gtr-uniform {
-						margin-top: -60px;
+						margin-top: -100px;
 					}
 
 						.row.gtr-200.gtr-uniform > * {
-							padding-top: 60px;
+							padding-top: 100px;
 						}
 
 		}
@@ -1437,6 +1437,37 @@ input, select, textarea {
 						}
 
 		}
+
+/* Remove flexbox for projects grid only */
+#projects-container.row {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(340px, 1fr));
+    gap: 32px 24px;
+    width: 100%;
+    justify-content: center;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+#projects-container.row > .col-4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 340px !important;
+    flex: unset !important;
+    display: block !important;
+}
+
+#projects-container.row > * {
+    flex: unset !important;
+    display: block !important;
+}
+
+/* Remove flexbox from .row for projects grid only */
+#projects-container.row {
+    flex-wrap: unset !important;
+    box-sizing: border-box !important;
+    align-items: unset !important;
+}
 
 /* Form */
 

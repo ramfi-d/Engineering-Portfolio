@@ -370,15 +370,14 @@ body {
     left: 0;
 }
 
-/* ===== PROJECT GRID STYLING ===== */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 20px 0;
-}
+
 
 .project-card {
+    width: 100%;
+    min-width: 340px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
     border: none;
     padding: 25px;
     border-radius: var(--border-radius);
@@ -761,6 +760,32 @@ body {
     }
 }
 
+/* Remove flex row for projects grid */
+#projects-container.row {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(340px, 1fr));
+    gap: 32px 24px;
+    width: 100%;
+    justify-content: center;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+/* Remove flex from .row for projects grid only */
+#projects-container.row > .col-4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 340px !important;
+    flex: unset !important;
+    display: block !important;
+}
+
+/* Remove flex from .row for projects grid only */
+#projects-container.row > * {
+    flex: unset !important;
+    display: block !important;
+}
+
 /* ===== SCROLL ANIMATIONS ===== */
 @keyframes slideInFromBottom {
     from {
@@ -775,4 +800,44 @@ body {
 
 .box, .project-card, .lab-report-box {
     animation: slideInFromBottom 0.6s ease-out;
+}
+
+/* Optionally override col-4 width for project cards in grid */
+#projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(340px, 1fr));
+    gap: 32px 24px;
+    width: 100%;
+    justify-content: center;
+    justify-items: stretch;
+}
+
+.project-card {
+    width: 100%;
+    min-width: 340px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#projects-container .col-4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 340px !important;
+    flex: 1 1 0;
+}
+
+@media (max-width: 1200px) {
+    #projects-container {
+        grid-template-columns: repeat(2, minmax(340px, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    #projects-container {
+        grid-template-columns: 1fr;
+    }
+    .project-card, #projects-container .col-4 {
+        min-width: 0 !important;
+    }
 }
