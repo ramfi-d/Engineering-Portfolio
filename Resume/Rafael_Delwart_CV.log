@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.14)  16 SEP 2025 13:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.14)  16 SEP 2025 13:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -396,26 +396,26 @@ Package hyperref Info: Link coloring OFF on input line 16.
 \openout3 = `Rafael_Delwart_CV.out'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--54
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--66
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 68--78
-
- []
-
-
-Overfull \hbox (15.37769pt too wide) in paragraph at lines 110--112
+Overfull \hbox (15.37769pt too wide) in paragraph at lines 73--75
 \OT1/cmr/bx/n/8 Prof. David Deamer []\OT1/cmr/m/n/8 (deamer@soe.ucsc.edu)[] \TS
 1/cmr/m/n/8 ˆ \OT1/cmr/bx/n/8 Prof. Collen Joseph-son []\OT1/cmr/m/n/8 (cjoseph
 -son@ucsc.edu)[] \TS1/cmr/m/n/8 ˆ \OT1/cmr/bx/n/8 Prof. Zouheir Rezki []\OT1/cm
 r/m/n/8 (zrezki@ucsc.edu)[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--88
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--112
+
  []
 
 [1
@@ -430,26 +430,25 @@ Package rerunfilecheck Info: File `Rafael_Delwart_CV.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 9696 strings out of 474486
- 151869 string characters out of 5743755
+ 9694 strings out of 474486
+ 151848 string characters out of 5743755
  1942542 words of memory out of 5000000
- 31898 multiletter control sequences out of 15000+600000
- 560879 words of font info for 45 fonts, out of 8000000 for 9000
+ 31897 multiletter control sequences out of 15000+600000
+ 560571 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,5n,79p,502b,431s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Rafde\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 0800.pk><C:/Users/Rafde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmbx10.pfb><C:/Users/Rafde/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb><C:/Users/Rafde/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Rafde/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Rafde/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Rafde/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Rafde/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Rafde
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Rafael_Delwart_CV.pdf (1 page, 139235 bytes).
+ts/cm/cmbx12.pfb><C:/Users/Rafde/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx8.pfb><C:/Users/Rafde/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Rafde/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Rafde/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Rafde/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Rafde/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on Rafael_Delwart_CV.pdf (1 page, 124574 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
+ 58 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
