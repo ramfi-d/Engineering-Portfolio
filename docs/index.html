@@ -5,86 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rafael Delwart</title>
-
     <!-- External CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- Meta tags for better SEO -->
-    <meta name="description"
-        content="Rafael Delwart - Robotics Engineer and Student at UCSC Baskin School of Engineering. Portfolio showcasing projects in autonomous systems, control systems, and embedded programming.">
-    <meta name="keywords"
-        content="Rafael Delwart, Robotics Engineer, UCSC, Embedded Systems, Autonomous Robots, Control Systems, Mechatronics">
-    <meta name="author" content="Rafael Delwart">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <!-- Center nav tabs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Color scheme and backgrounds -->
     <style>
-        #nav ul {
+        html,
+        body {
+            height: 100%;
+            min-height: 100%;
+            background: #FAF0DC !important;
+        }
+
+        #page-wrapper {
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            padding: 25px;
-            margin: 0;
-            list-style: none;
+            flex-direction: column;
+            background: transparent;
         }
 
-        #nav ul li {
-            float: none;
-            display: inline-block;
-        }
-
-        #nav ul li a {
-            color: #222;
-            font-size: 1.5em;
-            font-weight: 1200;
-            text-decoration: none;
-            padding: 8px 18px;
-            transition: color 0.2s;
-        }
-
-        #nav ul li a.active,
-        #nav ul li a:hover {
-            color: #111;
+        .tab-content {
+            background: #FAF0DC !important;
+            flex: 1 0 auto;
+            min-height: 60vh;
+            padding-top: 80px !important;
         }
 
         #header {
-            margin-bottom: 0;
+            background: #FAF0DC !important;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         }
 
-        #banner {
-            margin-top: -10px;
+        #main {
+            background: #FAF0DC !important;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
         }
 
-        /* Contact Me section spans even longer than viewport */
-        .contact-section-wrapper {
-            width: 100vw;
-            min-width: 1600px;
-            /* Force longer than most screens */
-            margin: 30px 0 0 0;
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
+        .tab-content:last-child {
+            background: #FAF0DC !important;
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
         }
 
-        #contact {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            text-align: center;
+        .box,
+        .container,
+        #contact,
+        .lab-report-box,
+        .project-card,
+        .pptx-container,
+        .banner,
+        .pdf-preview {
+            background: #A9B494 !important;
+            border-radius: 18px !important;
         }
 
-        #contact .contact-info {
-            text-align: left;
-            display: inline-block;
-        }
-
-        /* ...existing code... */
         #projects-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -92,14 +68,6 @@
             width: 100%;
             justify-content: center;
             justify-items: stretch;
-        }
-
-        .project-card {
-            min-width: 0;
-            max-width: 100%;
-            width: 100%;
-            box-sizing: border-box;
-            margin: 0;
         }
 
         @media (max-width: 1200px) {
@@ -113,42 +81,63 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .project-card {
+            border-radius: 6px !important;
+            margin-bottom: 0 !important;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        #projects {
+            background: #FAF0DC !important;
+        }
+
+        #projects .container {
+            background: #FAF0DC !important;
+        }
+
+        #projects .project-card {
+            background: #A9B494 !important;
+            border-radius: 18px !important;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        @media (max-width: 900px) {
+            #projects-container {
+                gap: 24px 0;
+            }
+        }
     </style>
 </head>
 
 <body class="homepage is-preload">
-    <!-- Loading Screen -->
-    <div id="loading-screen"
-        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #2c3e50, #3498db); z-index: 9999; display: flex; justify-content: center; align-items: center; color: white;">
-        <div style="text-align: center;">
-            <div
-                style="width: 60px; height: 60px; border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid white; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;">
-            </div>
-            <h2 style="margin: 0; font-weight: 300;">Loading Portfolio...</h2>
-        </div>
+    <!-- Mobile title bar + toggle -->
+    <div id="titleBar" aria-label="Main">
+        <button class="toggle" aria-expanded="false" aria-controls="navPanel">
+            <span class="sr-only">Open menu</span>
+        </button>
     </div>
 
-    <style>
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
+    <!-- Backdrop overlay for closing the panel on tap -->
+    <div id="navOverlay" hidden></div>
 
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+    <!-- Slide-in mobile nav panel -->
+    <nav id="navPanel" aria-hidden="true">
+        <nav>
+            <ul id="navPanelList"></ul>
+        </nav>
+    </nav>
+
     <div id="page-wrapper">
         <!-- Header -->
-        <section id="header">
+        <section id="header" style="background: #FAF0DC !important; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
             <!-- Navigation (Tabs) -->
             <nav id="nav">
                 <ul>
-                    <li><a href="#" onclick="showTab('home')">Home</a></li>
-                    <li><a href="#" onclick="showTab('cv')">CV</a></li>
-                    <li><a href="#" onclick="showTab('projects')">Projects</a></li>
-                    <li><a href="#" onclick="showTab('courses')">Courses</a></li>
+                    <li><a href="#" data-tab="home" class="active">Home</a></li>
+                    <li><a href="#" data-tab="cv">CV</a></li>
+                    <li><a href="#" data-tab="projects">Projects</a></li>
+                    <li><a href="#" data-tab="courses">Courses</a></li>
                 </ul>
             </nav>
         </section>
@@ -156,77 +145,54 @@
         <!-- Main Content (Tabs) -->
         <section id="main">
             <!-- Home Tab -->
-            <div id="home" class="tab-content active">
-                <!-- Home Tab Content -->
-                <section id="banner">
+            <div id="home" class="tab-content active" style="background: #FAF0DC;">
+                <section id="banner" style="margin-top: -10px;">
                     <header>
-                        <h2>Rafael Delwart</h2>
-                        <p>Robotics Engineer • UCSC Baskin School of Engineering</p>
+                        <h2 style="color: #fff !important;">Rafael Delwart</h2>
+                        <p style="color: #fff !important;">Robotics Engineer • UCSC Baskin School of Engineering</p>
                     </header>
                 </section>
-
-                <style>
-                    /* ...existing code... */
-                    #banner {
-                        /* ...existing code... */
-                    }
-
-                    #banner h2 {
-                        color: #fff !important;
-                    }
-
-                    #banner p {
-                        color: #fff !important;
-                    }
-
-                    /* ...existing code... */
-                </style>
 
                 <section>
                     <header class="featured-header" style="text-align: center; margin-bottom: 40px;">
                         <h2>Featured Projects</h2>
-                        <p style="color: #555555; font-size: 1.1em; max-width: 600px; margin: 0 auto;">
+                        <p class="featured-desc"
+                            style="color: #666666; font-size: 1.1em; max-width: 600px; margin: 0 auto;">
                             Explore my work in autonomous systems, control theory, and embedded programming
                         </p>
                     </header>
-
                     <div class="row">
-                        <!-- Project 1 Container -->
-                        <div class="col-4 col-6-medium col-12-small" id="project1-container">
-                        </div>
-
-                        <!-- Project 2 Container -->
-                        <div class="col-4 col-6-medium col-12-small" id="project2-container">
-                        </div>
-
-                        <!-- Project 3 Container -->
-                        <div class="col-4 col-6-medium col-12-small" id="project3-container">
-                        </div>
+                        <div class="col-4 col-6-medium col-12-small" id="project1-container"></div>
+                        <div class="col-4 col-6-medium col-12-small" id="project2-container"></div>
+                        <div class="col-4 col-6-medium col-12-small" id="project3-container"></div>
                     </div>
-
-                    <div style="text-align: center; margin-top: 40px;">
-                        <a href="#" onclick="showTab('projects')" class="button"
-                            style="padding: 15px 30px; font-size: 1.1em;">
-                            <i class="fas fa-arrow-right" style="margin-left: 10px;"></i> View All Projects
+                    <div class="view-all-projects" style="text-align: center; margin-top: 40px;">
+                        <a href="#" data-tab="projects" class="button" style="padding: 15px 30px; font-size: 1.1em;">
+                            <span>View All Projects</span>
+                            <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
                         </a>
                     </div>
                 </section>
 
                 <!-- Contact Me Section -->
-                <div class="contact-section-wrapper">
-                    <section id="contact" class="box">
+                <div class="contact-section-wrapper"
+                    style="width: 100vw; min-width: 1600px; margin: 30px 0 0 0; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
+                    <section id="contact" class="box"
+                        style="max-width: 1200px; width: 100%; margin: 0 auto; text-align: center;">
                         <header>
                             <h2>Contact Me</h2>
                         </header>
-
-                        <ul class="contact-info">
+                        <ul class="contact-info" style="text-align: left; display: inline-block;">
                             <li><i class="icon solid fa-phone"></i> <strong>Phone:</strong> +1 (415) 802-5537</li>
                             <li>
                                 <i class="icon solid fa-envelope"></i> <strong>Email:</strong>
-                                    <a href="mailto:Rdelwart@ucsc.edu" class="email">Rdelwart@ucsc.edu</a> (University)
+                                <div class="email-wrapper">
+                                    <a href="mailto:Rdelwart@ucsc.edu" class="email">Rdelwart@ucsc.edu</a>
+                                    (University)
                                     <span class="separator">•</span>
                                     <a href="mailto:Radelwart@gmail.com" class="email">Radelwart@gmail.com</a>
                                     (Personal)
+                                </div>
                             </li>
                             <li><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a
                                     href="https://www.linkedin.com/in/rafael-delwart-062471287/"
@@ -234,7 +200,6 @@
                             <li><i class="fab fa-github"></i> <strong>GitHub:</strong> <a
                                     href="https://github.com/ramfi-d" target="_blank">github.com/ramfi-d</a></li>
                         </ul>
-
                         <footer>
                             <a href="Resume/Rafael_Delwart_CV.pdf" class="button alt"
                                 download="Rafael_Delwart_CV.pdf">Download My CV</a>
@@ -244,8 +209,8 @@
             </div>
 
             <!-- CV Tab -->
-            <div id="cv" class="tab-content">
-                <div class="container">
+            <div id="cv" class="tab-content" style="background: #FAF0DC;">
+                <div class="container" style="background: #A9B494 !important; border-radius: 18px !important;">
                     <header style="text-align: center; margin-bottom: 40px;">
                         <h2 style="color: #2c3e50; font-size: 2.5em; margin-bottom: 15px;">
                             <i class="fas fa-file-pdf" style="color: #e74c3c; margin-right: 15px;"></i>
@@ -253,34 +218,20 @@
                         </h2>
                         <p style="color: #7f8c8d; font-size: 1.2em;">Download my latest resume or view it below</p>
                     </header>
-
-                    <section class="box">
-                        <div class="pdf-preview" style="width: 100%; text-align: center;">
-                            <!-- Try PDF.js first, fallback to iframe -->
-                            <canvas id="pdf-canvas"
-                                style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; display: none;"></canvas>
-                            <iframe id="pdf-fallback" src="Resume/Rafael_Delwart_CV.pdf"
-                                style="width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 5px; display: none;"></iframe>
-                            <div id="pdf-loading" style="padding: 50px; color: #666;">
-                                <div
-                                    style="display: inline-block; width: 40px; height: 40px; border: 3px solid #f3f3f3; border-top: 3px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;">
-                                </div>
-                                <br>Loading PDF...
-                            </div>
-                            <div id="pdf-error" style="padding: 50px; color: #d32f2f; display: none;">
-                                <i class="fas fa-exclamation-triangle"
-                                    style="font-size: 2em; margin-bottom: 15px; display: block;"></i>
-                                Error loading PDF. <a href="Resume/Rafael_Delwart_CV.pdf" target="_blank">Click here to
-                                    view PDF directly</a>
-                            </div>
+                    <section class="box" style="background: #A9B494 !important; border-radius: 18px !important;">
+                        <div class="pdf-preview"
+                            style="background: #A9B494 !important; border-radius: 18px !important; width: 100%; text-align: center;">
+                            <iframe src="Resume/Rafael_Delwart_CV.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=90"
+                                style="width:100%;max-width:900px;height:900px;border:1px solid #ddd;border-radius:5px;background:#fff;margin:0 auto;display:block;"
+                                title="Rafael Delwart CV PDF Preview" allowfullscreen></iframe>
                         </div>
                         <footer style="text-align: center; padding-top: 30px;">
                             <a href="Resume/Rafael_Delwart_CV.pdf" class="button alt" download="Rafael_Delwart_CV.pdf"
                                 style="margin: 0 10px;">
                                 <i class="fas fa-download" style="margin-right: 8px;"></i>Download PDF
                             </a>
-                            <a href="Resume/Rafael_Delwart_CV.pdf" target="_blank" class="button"
-                                style="margin: 0 10px;">
+                            <a href="Resume/Rafael_Delwart_CV.pdf" target="_blank" class="button alt"
+                                style="margin: 0 10px; font-weight: 600;">
                                 <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i>Open in New Tab
                             </a>
                         </footer>
@@ -289,33 +240,29 @@
             </div>
 
             <!-- Projects Tab -->
-            <div id="projects" class="tab-content">
-                <div class="container">
+            <div id="projects" class="tab-content" style="background: #FAF0DC;">
+                <div class="container" style="background: #FAF0DC !important;">
                     <header style="text-align: center; margin-bottom: 50px;">
+
                         <h2 style="color: #2c3e50; font-size: 2.5em; margin-bottom: 15px;">
                             <i class="fas fa-cogs" style="color: #3498db; margin-right: 15px;"></i>
                             My Projects
                         </h2>
                         <p style="color: #7f8c8d; font-size: 1.2em; max-width: 700px; margin: 0 auto;">
-                            A collection of engineering projects spanning autonomous systems, control theory, embedded
-                            programming, and digital design
+                            A collection of engineering projects spanning autonomous systems, control theory,
+                            embedded programming, and digital design
                         </p>
                     </header>
-
-                    <!-- Project Grid Container (Projects will be inserted here) -->
-                    <div class="row" id="projects-container" style="margin-bottom: 40px;">
-                        <!-- JavaScript will dynamically insert project cards here -->
-                    </div>
-
-                    <div
+                    <div class="row" id="projects-container" style="margin-bottom: 40px;"></div>
+                    <div class="collaboration-invite"
                         style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; margin-top: 40px;">
                         <h3 style="color: #2c3e50; margin-bottom: 15px;">
                             <i class="fas fa-lightbulb" style="color: #f39c12; margin-right: 10px;"></i>
                             Interested in Collaboration?
                         </h3>
-                        <p style="color: #7f8c8d; margin-bottom: 25px;">I'm always open to discussing new projects and
-                            opportunities</p>
-                        <a href="#" onclick="showTab('home')" class="button alt">
+                        <p style="color: #7f8c8d; margin-bottom: 25px;">I'm always open to discussing new projects
+                            and opportunities</p>
+                        <a href="#" data-tab="home" class="button alt">
                             <i class="fas fa-envelope" style="margin-right: 8px;"></i>Get In Touch
                         </a>
                     </div>
@@ -339,8 +286,10 @@
                             <h3>Overview</h3>
                         </header>
                         <p>This power supply is designed for delivering variable current while maintaining high
-                            stability. It uses 3-terminal linear voltage regulators and half-wave rectifiers to provide
-                            reliable performance, making it ideal for a variety of electronic projects requiring bipolar
+                            stability. It uses 3-terminal linear voltage regulators and half-wave rectifiers to
+                            provide
+                            reliable performance, making it ideal for a variety of electronic projects requiring
+                            bipolar
                             power supplies.</p>
                     </section>
 
@@ -368,11 +317,15 @@
                             signals to produce a more stable DC voltage. They reduce the ripple
                             voltage before it reaches the regulators.
 
-                            C3 and C4 are 1 µF capacitors, these capacitors are placed at the output of the LM317 and
+                            C3 and C4 are 1 µF capacitors, these capacitors are placed at the output of the LM317
+                            and
                             LM337 regulators to improve stability and reduce high-frequency noise.
-                            TI recommends that the input terminal be bypassed to ground with a bypass capacitor, optimum
-                            placement is closest to the input terminal of the device and the system GND. TI recommends a
-                            0.1 µF capacitor for high frequency and 10 µF for high capacity thus 1 µF was chosen for a
+                            TI recommends that the input terminal be bypassed to ground with a bypass capacitor,
+                            optimum
+                            placement is closest to the input terminal of the device and the system GND. TI
+                            recommends a
+                            0.1 µF capacitor for high frequency and 10 µF for high capacity thus 1 µF was chosen for
+                            a
                             balance of both.
 
                             LM317 is an adjustable positive voltage regulator, it regulates the positive
@@ -382,15 +335,19 @@
                             regulator.
 
                             For the positive voltage rail, R1 and R2 create a voltage divider. R1 is a fixed
-                            resistor, while R2 is a 5k potentiometer that adjusts the output voltage. R7, which is in
-                            parallel with R2, fine-tunes the adjustment range of R2. This simple addition allows finer
+                            resistor, while R2 is a 5k potentiometer that adjusts the output voltage. R7, which is
+                            in
+                            parallel with R2, fine-tunes the adjustment range of R2. This simple addition allows
+                            finer
                             control over the output voltage.
 
-                            For LM337 (negative voltage rail), R4 and R3 create a similar voltage divider with R5 for
+                            For LM337 (negative voltage rail), R4 and R3 create a similar voltage divider with R5
+                            for
                             finer control.
                             R6 sets the lower bound for the negative rail at about -3V.
 
-                            The final output of this power supply can be fine-tuned to provide adjustable voltages in
+                            The final output of this power supply can be fine-tuned to provide adjustable voltages
+                            in
                             the range of approximately +/- 3V to +/- 16V
 
 
@@ -398,7 +355,7 @@
                     </section>
 
                     <!-- Return to Projects Button -->
-                    <a href="#" class="button" onclick="showProjects()">Projects</a>
+                    <a href="#" class="button return-to-projects">Projects</a>
                 </div>
             </div>
 
@@ -417,13 +374,20 @@
                     </div>
 
 
-                    <p>This project involved developing an event service framework for an autonomous roach. The system,
-                        programmed in C, supports asynchronous event processing and a straightforward implementation of
-                        Hierarchical State Machines (HSMs). The objective of the autonomous bot was to use its onboard
-                        Light Dependent Resistor (LDR) sensors to find out dark areas, mimicking the behavior of a real
-                        cockroach. Once the roach finds darkness, it pauses its search algorithm until one of its side
-                        bump sensors is triggered, simulating a human disturbance. When disturbed, the robot performs a
-                        frantic evasive maneuver until it finds another dark spot to hide. The video demonstrates the
+                    <p>This project involved developing an event service framework for an autonomous roach. The
+                        system,
+                        programmed in C, supports asynchronous event processing and a straightforward implementation
+                        of
+                        Hierarchical State Machines (HSMs). The objective of the autonomous bot was to use its
+                        onboard
+                        Light Dependent Resistor (LDR) sensors to find out dark areas, mimicking the behavior of a
+                        real
+                        cockroach. Once the roach finds darkness, it pauses its search algorithm until one of its
+                        side
+                        bump sensors is triggered, simulating a human disturbance. When disturbed, the robot
+                        performs a
+                        frantic evasive maneuver until it finds another dark spot to hide. The video demonstrates
+                        the
                         bot hiding under chairs and scurrying away to find another desk or chair to conceal itself
                         beneath.</p>
 
@@ -449,14 +413,14 @@
 
                             <!-- Full-Screen PDF Button -->
                             <footer>
-                                <button class="lab-report-button alt lab-report-fullscreen-button"
-                                    onclick="openPdfFullScreen('assets/Lab_0_ECE118.pdf')">View Full Screen</button>
+                                <button class="lab-report-button alt lab-report-fullscreen-button open-pdf-fullscreen"
+                                    data-pdf-url="assets/Lab_0_ECE118.pdf">View Full Screen</button>
                             </footer>
                         </section>
                     </div>
 
                     <!-- Return to Projects Button -->
-                    <a href="#" class="button" onclick="showProjects()">Return to Projects</a>
+                    <a href="#" class="button return-to-projects">Return to Projects</a>
                 </div>
             </div>
 
@@ -467,14 +431,18 @@
                     <h2>Rock Climbing Tracker</h2>
 
                     <img src="assets/displacementXAnimation.gif" alt="X axis displacement of 1 meter" class="gif-image">
-                    <p>This project involved development and testing of an activity classification system designed to
+                    <p>This project involved development and testing of an activity classification system designed
+                        to
                         track rock climbing routes by measuring displacement throughout the route using a 9-DOF IMU
                         sensor, the BNO055. The sensor's acceleration data was double-integrated to derive the
                         displacement over time, with a state machine implemented for data collection in Calibration,
-                        Recording, and Waiting states. Calibration mode ensured accuracy by requiring all sensor types
+                        Recording, and Waiting states. Calibration mode ensured accuracy by requiring all sensor
+                        types
                         to be
-                        fully calibrated before data recording began. Data was recorded using CoolTerm and analyzed in
-                        MATLAB, where preprocessing included debouncing, bias removal, and applying both low-pass and
+                        fully calibrated before data recording began. Data was recorded using CoolTerm and analyzed
+                        in
+                        MATLAB, where preprocessing included debouncing, bias removal, and applying both low-pass
+                        and
                         high-pass filters to get human movement and eliminate the random spikes from the sensor.
                         Velocity and displacement were calculated by integrating the acceleration
                         data, and their visualizations provided insights into the movements captured by the sensor.
@@ -502,9 +470,8 @@
 
                             <!-- Full-Screen PDF Button -->
                             <footer>
-                                <button class="lab-report-button alt lab-report-fullscreen-button"
-                                    onclick="openPdfFullScreen('assets/Rock_Climbing_Project.pdf')">View Full
-                                    Screen</button>
+                                <button class="lab-report-button alt lab-report-fullscreen-button open-pdf-fullscreen"
+                                    data-pdf-url="assets/Rock_Climbing_Project.pdf">View Full Screen</button>
                             </footer>
                         </section>
                     </div>
@@ -522,7 +489,7 @@
                     </div>
 
                     <!-- Return to Projects Button -->
-                    <a href="#" class="button" onclick="showProjects()">Return to Projects</a>
+                    <a href="#" class="button return-to-projects">Return to Projects</a>
                 </div>
             </div>
 
@@ -534,7 +501,7 @@
                     <p>Details of project 4 go here...</p>
 
                     <!-- Return to Projects Button -->
-                    <a href="#" class="button" onclick="showProjects()">Return to Projects</a>
+                    <a href="#" class="button return-to-projects">Return to Projects</a>
                 </div>
             </div>
 
@@ -542,7 +509,8 @@
             <div id="project5-details" class="tab-content" style="display:none;">
                 <div class="container">
                     <h2>Autonomous Ball-Collecting Robot</h2>
-                    <p>Under the guidance of Professor Gabriel Hugh Elkaim, our team, including Ana Elizabeth Villa and
+                    <p>Under the guidance of Professor Gabriel Hugh Elkaim, our team, including Ana Elizabeth Villa
+                        and
                         Rafael Delwart, developed an autonomous robot as part of the final lab in Mechatronics
                         (ECE-118). Tasked with navigating a game field, the robot locates, traps, and deposits 25mm
                         chrome balls either within itself or onto the opponent's field. Our design, "The Roller,"
@@ -567,16 +535,15 @@
 
                             <!-- Full-Screen PDF Button -->
                             <footer>
-                                <button class="lab-report-button alt lab-report-fullscreen-button"
-                                    onclick="openPdfFullScreen('assets/RAutonomous_Robot_Mechatronics_Report.pdf')">View
-                                    Full
+                                <button class="lab-report-button alt lab-report-fullscreen-button open-pdf-fullscreen"
+                                    data-pdf-url="assets/RAutonomous_Robot_Mechatronics_Report.pdf">View Full
                                     Screen</button>
                             </footer>
                         </section>
                     </div>
 
                     <!-- Return to Projects Button -->
-                    <a href="#" class="button" onclick="showProjects()">Return to Projects</a>
+                    <a href="#" class="button return-to-projects">Return to Projects</a>
                 </div>
             </div>
 
@@ -593,23 +560,25 @@
                         </header>
                         <ul class="course-list">
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece101"
-                                    target="_blank">ECE101/L</a> – Intro to linear systems and signals, with lab work.
+                                    target="_blank">ECE101/L</a> – Intro to linear systems and signals, with lab
+                                work.
                             </li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece103"
                                     target="_blank">ECE103/L</a> – Analysis of electrical circuits and components,
                                 includes lab work.</li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece118" target="_blank">ECE118</a>
                                 – A project-based course on designing and integrating mechanical, electrical, and
-                                computer systems into functional automated systems using sensors and microcontrollers.
+                                computer systems into functional automated systems using sensors and
+                                microcontrollers.
                             </li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece121" target="_blank">ECE121</a>
                                 – Design and use of microcontroller-based systems and interfacing with analog and
                                 digital systems.</li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece129a"
                                     target="_blank">ECE129A</a>
-                                – Capstone Project I: First of a three-course sequence where students apply knowledge
-                                and skills to complete a major design project. Covers engineering design cycle, team
-                                practices, and project specification and planning.</li>
+                                – Capstone Project I: First of a three-course sequence where students apply
+                                knowledge and skills to complete a major design project. Covers engineering design
+                                cycle, team practices, and project specification and planning.</li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece129b"
                                     target="_blank">ECE129B</a>
                                 – Capstone Project II: Continuation of the capstone project sequence focusing on
@@ -619,19 +588,21 @@
                                 – Capstone Project III: Final course in the capstone sequence, emphasizing project
                                 completion, testing, and presentation.</li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece141" target="_blank">ECE141</a>
-                                – Feedback Control Systems: Analysis and design of continuous linear feedback control
-                                systems. Covers design by root locus, frequency response, and state space methods with
-                                practical applications.</li>
+                                – Feedback Control Systems: Analysis and design of continuous linear feedback
+                                control systems. Covers design by root locus, frequency response, and state space
+                                methods with practical applications.</li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece167"
-                                    target="_blank">ECE167/L</a> – Use of sensors for temperature, motion, sound, and
+                                    target="_blank">ECE167/L</a> – Use of sensors for temperature, motion, sound,
+                                and
                                 light, focusing on digital integration.</li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece171"
-                                    target="_blank">ECE171/L</a> – Amplifiers, oscillators, and signal processing with
+                                    target="_blank">ECE171/L</a> – Amplifiers, oscillators, and signal processing
+                                with
                                 hands-on lab work.</li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece242" target="_blank">ECE242</a>
                                 – Applied Feedback Control: Advanced control design course that explores state space
-                                control, discrete time control, and case studies. Students design and implement feedback
-                                controllers on real experiments like inverted pendulum systems.</li>
+                                control, discrete time control, and case studies. Students design and implement
+                                feedback controllers on real experiments like inverted pendulum systems.</li>
 
                         </ul>
                     </section>
@@ -646,7 +617,8 @@
                                 C programming with a focus on embedded systems, using the Microchip PIC32
                                 microcontroller.</li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/cse12" target="_blank">CSE12</a> –
-                                Introduction to computer systems, digital logic, and assembly language programming.</li>
+                                Introduction to computer systems, digital logic, and assembly language programming.
+                            </li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/cse16" target="_blank">CSE16/L</a>
                                 – Study of discrete structures including sets, graphs, and combinatorics applied to
                                 computer science.</li>
@@ -671,7 +643,8 @@
                         </header>
                         <ul class="course-list">
                             <li><a href="https://catalog.ucsc.edu/en/current/general-catalog/courses/math-mathematics/lower-division/math-19a/"
-                                    target="_blank">MATH19A</a> – Calculus for science, engineering, and mathematics.
+                                    target="_blank">MATH19A</a> – Calculus for science, engineering, and
+                                mathematics.
                             </li>
                             <li><a href="https://catalog.ucsc.edu/en/current/general-catalog/courses/math-mathematics/lower-division/math-19b/"
                                     target="_blank">MATH19B</a> – Continuation of calculus with applications in
@@ -689,14 +662,16 @@
                             <h3><i class="icon solid fa-atom"></i> Physics/Mechanics</h3>
                         </header>
                         <ul class="course-list">
-                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece9" target="_blank">ECE9</a> –
+                            <li><a href="https://courses.engineering.ucsc.edu/courses/ece9" target="_blank">ECE9</a>
+                                –
                                 Fundamentals of statics and mechanics, focusing on the behavior of materials under
                                 various forces.</li>
                             <li><a href="https://courses.engineering.ucsc.edu/courses/ece10" target="_blank">ECE10</a> –
                                 Application of mathematical models to analyze the kinematics and dynamics of robot
                                 mechanisms.</li>
                             <li><a href="https://catalog.ucsc.edu/current/general-catalog/courses/phys-physics/lower-division/phys-5a/"
-                                    target="_blank">PHYS5A/L</a> – Mechanics and wave motion, with lab component.</li>
+                                    target="_blank">PHYS5A/L</a> – Mechanics and wave motion, with lab component.
+                            </li>
                             <li><a href="https://catalog.ucsc.edu/current/general-catalog/courses/phys-physics/lower-division/phys-5b/"
                                     target="_blank">PHYS5B/L</a> – Study of electricity and magnetism, includes lab
                                 work.</li>
@@ -714,219 +689,21 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
     <!-- PDF.js for PDF rendering -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-
     <!-- Custom JavaScript Files -->
     <script src="assets/js/projects.js"></script>
     <script src="assets/js/pdf-handler.js"></script>
     <script src="assets/js/navigation.js"></script>
     <script src="assets/js/project-manager.js"></script>
-
-    <!-- Loading Screen and Initialization -->
-    <script>
-        // Remove loading screen when page is fully loaded
-        window.addEventListener('load', function () {
-            setTimeout(function () {
-                const loadingScreen = document.getElementById('loading-screen');
-                if (loadingScreen) {
-                    loadingScreen.style.opacity = '0';
-                    loadingScreen.style.transition = 'opacity 0.5s ease-out';
-                    setTimeout(function () {
-                        loadingScreen.style.display = 'none';
-                    }, 500);
-                }
-            }, 1000); // Small delay to show the loading screen
-        });
-
-        // Add smooth scrolling and enhanced interactions
-        document.addEventListener('DOMContentLoaded', function () {
-            // Add active states to navigation
-            const navLinks = document.querySelectorAll('#nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function () {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-
-            // Add intersection observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Observe elements for scroll animations
-            document.querySelectorAll('.box, .project-card, .lab-report-box').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-        });
-
-        // Enhanced tab switching with history
-        function showTabWithHistory(tabId) {
-            showTab(tabId);
-            history.pushState({ tab: tabId }, '', `#${tabId}`);
-        }
-
-        // Handle browser back/forward
-        window.addEventListener('popstate', function (event) {
-            if (event.state && event.state.tab) {
-                showTab(event.state.tab);
-            }
-        });
-
-        // Hide/show tab bar on scroll
-        let lastScrollTop = 0;
-        let scrollTimeout;
-        const header = document.getElementById('header');
-
-        window.addEventListener('scroll', function () {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            // Clear any existing timeout
-            clearTimeout(scrollTimeout);
-
-            // Add a small delay to prevent too frequent updates
-            scrollTimeout = setTimeout(function () {
-                if (scrollTop > lastScrollTop && scrollTop > 100) {
-                    // Scrolling down - hide header
-                    header.style.transform = 'translateY(-100%)';
-                    header.style.transition = 'transform 0.3s ease-in-out';
-                } else if (scrollTop < lastScrollTop || scrollTop <= 100) {
-                    // Scrolling up or near top - show header
-                    header.style.transform = 'translateY(0)';
-                    header.style.transition = 'transform 0.3s ease-in-out';
-                }
-                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-            }, 10);
-        });
-    </script>
-
     <style>
-        /* ...existing code... */
-        html,
-        body {
-            height: 100%;
-            min-height: 100%;
-            background: #FAF0DC !important;
-        }
-
-        #page-wrapper {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background: transparent;
-        }
-
-        .tab-content {
-            background: #FAF0DC;
-            flex: 1 0 auto;
-            min-height: 60vh;
-            padding-top: 80px !important;
-            /* Add space at top for tab headings */
-        }
-
-        #header {
-            background: #FAF0DC !important;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-        }
-
-        /* Remove white space above tab-content (under header) */
-        #main {
-            background: #FAF0DC !important;
-            margin-top: 0 !important;
-            padding-top: 0 !important;
-        }
-
-        /* Remove white space below tab-content */
-        .tab-content:last-child {
-            background: #FAF0DC !important;
-            margin-bottom: 0 !important;
-            padding-bottom: 0 !important;
-        }
-
-        /* Background behind tabs and top of home page */
-        #header {
-            background: #FAF0DC !important;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-        }
-
-        /* Container backgrounds */
-        .box,
-        .container,
-        #contact,
-        .lab-report-box,
-        .project-card,
-        .pptx-container,
-        .banner,
-        .pdf-preview {
-            background: #A9B494 !important;
-            border-radius: 18px !important;
-        }
-
-        /* Projects tab: add gap between project cards */
-        #projects-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px 24px;
-            width: 100%;
-            justify-content: center;
-            justify-items: stretch;
-        }
-
-        @media (max-width: 1200px) {
-            #projects-container {
-                grid-template-columns: repeat(2, 1fr);
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
             }
-        }
 
-        @media (max-width: 800px) {
-            #projects-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Ensure individual project cards are rounded and spaced */
-        .project-card {
-            border-radius: 6px !important;
-            margin-bottom: 0 !important;
-            /* gap handled by flex */
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-        }
-
-        
-        /* Projects tab specific styles */
-        #projects {
-            background: #FAF0DC !important;
-        }
-
-        #projects .container {
-            background: #FAF0DC !important;
-        }
-
-        #projects .project-card {
-            background: #A9B494 !important;
-            border-radius: 18px !important;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-        }
-
-        /* Responsive fallback for stacked layout */
-        @media (max-width: 900px) {
-            #projects-container {
-                gap: 24px 0;
+            100% {
+                transform: rotate(360deg);
             }
         }
     </style>

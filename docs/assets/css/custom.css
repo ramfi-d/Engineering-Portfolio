@@ -20,23 +20,32 @@
 
 /* ===== STICKY HEADER FOR SCROLL HIDE FUNCTIONALITY ===== */
 #header {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
+    /* Remove fixed/absolute positioning and background */
+    position: static !important;
+    top: unset;
+    left: unset;
+    right: unset;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(204, 204, 204, 0.5);
-    padding: 1em 0 1em 0 !important;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease-in-out;
+    background: none !important;
+    backdrop-filter: none;
+    border-bottom: none;
+    padding: 0 !important;
+    box-shadow: none;
+    transition: none;
+    margin-bottom: 0;
+    height: auto;
+    min-height: 0;
 }
 
-/* Adjust body to account for fixed header */
+/* Remove extra padding from body since header is not fixed */
 body {
-    padding-top: 100px; /* Adjust this value based on your header height */
+    padding-top: 0 !important;
+}
+
+/* Add spacing above #nav to keep tabs at the top with room */
+#nav {
+    margin-top: 32px !important;
 }
 
 /* ===== BASIC TAB FUNCTIONALITY ===== */
@@ -62,21 +71,26 @@ body {
 }
 
 #nav ul {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
-    backdrop-filter: blur(15px);
+    background: #FAF0DC !important;
     border-radius: 35px;
     padding: 20px 40px;
     box-shadow: var(--shadow-heavy);
-    border: 2px solid rgba(52, 152, 219, 0.15);
+    border: none !important;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    overflow: hidden;
+}
 
+/* Remove or override any previous background gradients if present */
 #nav ul {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
-    backdrop-filter: blur(15px);
+    background: #FAF0DC !important;
     border-radius: 35px;
     padding: 20px 40px;
     box-shadow: var(--shadow-heavy);
-    border: 2px solid rgba(52, 152, 219, 0.15);
+    border: none !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,7 +127,7 @@ body {
     padding: 18px 35px;
     border-radius: 25px;
     font-weight: 600;
-    font-size: 1.8em;
+    font-size: 1.2em; /* reduced from 1.8em */
     color: var(--primary-color);
     text-decoration: none;
     display: flex;
@@ -124,6 +138,16 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     z-index: 1;
+    background: none !important;
+}
+
+/* Active tab bubble */
+#nav ul li a.active {
+    background: #A9B494 !important;
+    color: var(--primary-color) !important;
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+    text-shadow: none;
 }
 
 #nav ul li a::before {
@@ -146,38 +170,24 @@ body {
     transform: translateX(-50%) scaleX(0);
     width: 80%;
     height: 3px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    background: #397553; /* changed from blue gradient to solid dark green */
     border-radius: 2px;
     transition: transform 0.3s ease;
 }
 
-#nav ul li a:hover {
-    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
-    color: white;
+#nav ul li a:hover,
+#nav ul li a:focus {
+    background: #A9B494 !important;
+    color: #fff !important;
+    box-shadow: var(--shadow-medium);
     transform: translateY(-3px);
-    box-shadow: var(--shadow-medium);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    text-shadow: none;
 }
 
-#nav ul li a:hover::before {
-    left: 100%;
-}
-
-#nav ul li a:hover::after {
+#nav ul li a:hover::after,
+#nav ul li a:focus::after {
     transform: translateX(-50%) scaleX(1);
-}
-
-#nav ul li a.active {
-    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
-    color: white;
-    box-shadow: var(--shadow-medium);
-    transform: translateY(-2px);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-
-#nav ul li a.active::after {
-    transform: translateX(-50%) scaleX(1);
-    background: white;
+    background: #397553;
 }
 
 /* Add icons to navigation items */
@@ -254,7 +264,7 @@ body {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    background: #397553; /* dark green to match other lines */
     border-radius: 2px;
 }
 
@@ -335,39 +345,34 @@ body {
 }
 
 /* ===== BUTTON IMPROVEMENTS ===== */
+.button,
 .button.alt {
-    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
-    color: white;
-    padding: 15px 30px;
+    display: inline-block;
+    padding: 12px 24px;
+    background: #000 !important;
+    color: #fff !important;
     text-decoration: none;
-    border-radius: 25px;
-    transition: var(--transition);
+    border-radius: 20px;
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 600;
     box-shadow: var(--shadow-light);
     position: relative;
     overflow: hidden;
     z-index: 1;
+    border: none;
 }
 
-.button.alt::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #3498db, var(--accent-color));
-    transition: var(--transition);
-    z-index: -1;
-}
-
+.button:hover,
 .button.alt:hover {
-    transform: translateY(-3px);
+    background: #397553 !important; /* darker green */
+    color: #fff !important;
     box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
 }
 
-.button.alt:hover::before {
-    left: 0;
+/* Remove old .button.alt gradient and before pseudo-element */
+.button.alt::before {
+    display: none !important;
 }
 
 
@@ -396,7 +401,7 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    background: #397553; /* changed from gradient to solid dark green */
 }
 
 .project-card:hover {
@@ -406,10 +411,11 @@ body {
 
 .project-card img {
     max-width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 15px; /* fixed typo: was '15' */
     transition: var(--transition);
+    margin-bottom: 40px; /* add spacing below image */
 }
 
 .project-card:hover img {
@@ -424,11 +430,12 @@ body {
 
 .project-card p {
     margin: 15px 0;
-    font-size: 14px;
-    color: var(--text-light);
-    line-height: 1.6;
+    font-size: 1.2em;       /* larger, scales with base font */
+    color: #222 !important; /* softer dark gray */
+    line-height: 1.85;      /* more space between lines */
+    font-weight: 600;
+    letter-spacing: 0.01em;
 }
-
 .button {
     display: inline-block;
     padding: 12px 24px;
@@ -579,31 +586,34 @@ body {
     padding: 15px;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
-    border-left: 4px solid var(--secondary-color);
+    border-left: 4px solid #A9B494;
     transition: var(--transition);
     box-shadow: var(--shadow-light);
+    color: #222 !important;
+    font-weight: 500;
+
 }
 
 .course-list li:hover {
     transform: translateX(10px);
-    border-left-color: var(--accent-color);
+    border-left-color: #397553;
     box-shadow: var(--shadow-medium);
 }
 
 .course-list li a {
     text-decoration: none;
-    color: var(--secondary-color);
+    color: #A9B494;
     font-weight: 600;
     transition: var(--transition);
 }
 
 .course-list li a:hover {
-    color: var(--accent-color);
+    color: #397553;
 }
 
 /* ===== BOX STYLING ===== */
 .box h3 {
-    border-bottom: 3px solid var(--secondary-color);
+    border-bottom: 3px solid #397553; /* changed from var(--secondary-color) to dark green */
     padding-bottom: 15px;
     margin-bottom: 25px;
     display: flex;
@@ -639,24 +649,45 @@ body {
 
 /* ===== PDF PREVIEW IMPROVEMENTS ===== */
 .pdf-preview {
+    width: 100%;
+    text-align: center;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border-radius: var(--border-radius);
     padding: 20px;
     margin: 20px 0;
+    position: relative;
 }
 
-#pdf-canvas, #pdf-fallback {
-    border: 2px solid var(--secondary-color) !important;
-    border-radius: var(--border-radius) !important;
-    box-shadow: var(--shadow-heavy) !important;
+#pdf-canvas {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: none;
+}
+
+#pdf-fallback {
+    width: 100%;
+    height: 800px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: none;
 }
 
 #pdf-loading {
-    background: rgba(52, 152, 219, 0.1);
-    border-radius: var(--border-radius);
-    margin: 20px;
-    color: var(--primary-color) !important;
-    font-weight: 500;
+    padding: 50px;
+    color: #666;
+}
+
+#pdf-error {
+    padding: 50px;
+    color: #d32f2f;
+    display: none;
+}
+
+#pdf-error a {
+    color: var(--secondary-color);
+    text-decoration: underline;
 }
 
 /* ===== BANNER IMPROVEMENTS ===== */
@@ -786,6 +817,89 @@ body {
     display: block !important;
 }
 
+/* Featured Projects Header */
+.featured-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.featured-header h2 {
+    font-size: 2.2em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.featured-desc {
+    color: #222 !important;
+    font-weight: 500;
+
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* View All Projects Button */
+.view-all-projects {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.view-all-projects .button {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    background: #000 !important;
+    color: #fff !important;
+    border-radius: 20px;
+    box-shadow: var(--shadow-light);
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.view-all-projects .button:hover {
+    background: #397553 !important;
+    color: #fff !important;
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+/* Contact Section Wrapper */
+.contact-section-wrapper {
+    width: 100vw;
+    min-width: 1600px;
+    margin: 30px 0 0 0;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* Collaboration Invite Section */
+.collaboration-invite {
+    text-align: center;
+    padding: 40px 20px;
+    background: #A9B494 !important;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+.collaboration-invite h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.collaboration-invite p {
+    color: #222 !important;
+    font-weight: 400;
+
+    margin-bottom: 25px;
+}
+
 /* ===== SCROLL ANIMATIONS ===== */
 @keyframes slideInFromBottom {
     from {
@@ -841,3 +955,41 @@ body {
         min-width: 0 !important;
     }
 }
+    }
+    .project-card, #projects-container .col-4 {
+        min-width: 0 !important;
+    }
+}
+
+/* Prevent Home tab from being highlighted blue even if active */
+#nav ul li:first-child a.active,
+#nav > ul > li:first-child > a.active {
+    background: none !important;
+    color: var(--primary-color) !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transform: none !important;
+    /* Remove border if any */
+    border: none !important;
+    text-shadow: none !important;
+    transform: none !important;
+    /* Remove border if any */
+    border: none !important;
+}
+
+.container > header > p,
+.container header > p {
+    color: #222 !important;
+    font-weight: 500;
+}
+
+
+/* Prevent background scroll when menu is open */
+body.navPanel-visible { overflow: hidden; }
+
+/* Dim the page when the panel is open */
+#navOverlay {
+  position: fixed; inset: 0; display: none;
+  background: rgba(0,0,0,0.25); z-index: 2500;
+}
+body.navPanel-visible #navOverlay { display: block; }
