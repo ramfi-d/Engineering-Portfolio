@@ -63,23 +63,11 @@
 
         #projects-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 32px 24px;
             width: 100%;
             justify-content: center;
             justify-items: stretch;
-        }
-
-        @media (max-width: 1200px) {
-            #projects-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 800px) {
-            #projects-container {
-                grid-template-columns: 1fr;
-            }
         }
 
         .project-card {
@@ -174,39 +162,55 @@
                     </div>
                 </section>
 
-                <!-- Contact Me Section -->
-                <div class="contact-section-wrapper"
-                    style="width: 100vw; min-width: 1600px; margin: 30px 0 0 0; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
-                    <section id="contact" class="box"
-                        style="max-width: 1200px; width: 100%; margin: 0 auto; text-align: center;">
-                        <header>
-                            <h2>Contact Me</h2>
-                        </header>
-                        <ul class="contact-info" style="text-align: left; display: inline-block;">
-                            <li><i class="icon solid fa-phone"></i> <strong>Phone:</strong> +1 (415) 802-5537</li>
+                <!-- Contact Me Section (responsive) -->
+                <section id="contact" class="box contact-section-wrapper">
+                    <header>
+                        <h2>Contact Me</h2>
+                    </header>
+
+                    <div class="contact-grid">
+                        <ul class="contact-info">
                             <li>
-                                <i class="icon solid fa-envelope"></i> <strong>Email:</strong>
+                                <i class="fas fa-phone"></i>
+                                <strong>Phone:</strong> +1 (415) 802-5537
+                            </li>
+
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <strong>Email:</strong>
                                 <div class="email-wrapper">
-                                    <a href="mailto:Rdelwart@ucsc.edu" class="email">Rdelwart@ucsc.edu</a>
-                                    (University)
+                                    <a href="mailto:Rdelwart@ucsc.edu" class="email">Rdelwart@ucsc.edu</a> (University)
                                     <span class="separator">•</span>
                                     <a href="mailto:Radelwart@gmail.com" class="email">Radelwart@gmail.com</a>
                                     (Personal)
                                 </div>
                             </li>
-                            <li><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a
-                                    href="https://www.linkedin.com/in/rafael-delwart-062471287/"
-                                    target="_blank">linkedin.com/in/rafael-delwart</a></li>
-                            <li><i class="fab fa-github"></i> <strong>GitHub:</strong> <a
-                                    href="https://github.com/ramfi-d" target="_blank">github.com/ramfi-d</a></li>
+
+                            <li>
+                                <i class="fab fa-linkedin"></i>
+                                <strong>LinkedIn:</strong>
+                                <a href="https://www.linkedin.com/in/rafael-delwart-062471287/" target="_blank"
+                                    rel="noopener">
+                                    linkedin.com/in/rafael-delwart-062471287
+                                </a>
+                            </li>
+
+                            <li>
+                                <i class="fab fa-github"></i>
+                                <strong>GitHub:</strong>
+                                <a href="https://github.com/ramfi-d" target="_blank"
+                                    rel="noopener">github.com/ramfi-d</a>
+                            </li>
                         </ul>
-                        <footer>
-                            <a href="Resume/Rafael_Delwart_CV.pdf" class="button alt"
+
+                        <div class="contact-cta">
+                            <a class="button alt" href="Resume/Rafael_Delwart_CV.pdf"
                                 download="Rafael_Delwart_CV.pdf">Download My CV</a>
-                        </footer>
-                    </section>
-                </div>
+                        </div>
+                    </div>
+                </section>
             </div>
+
 
             <!-- CV Tab -->
             <div id="cv" class="tab-content" style="background: #FAF0DC;">
@@ -253,15 +257,16 @@
                             embedded programming, and digital design
                         </p>
                     </header>
-                    <div class="row" id="projects-container" style="margin-bottom: 40px;"></div>
+                    <div id="projects-container" style="margin-bottom: 40px;"></div>
                     <div class="collaboration-invite"
-                        style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; margin-top: 40px;">
+                        style="text-align: center; padding: 40px 20px; background: #A9B494 !important; border-radius: 18px !important; margin-top: 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
                         <h3 style="color: #2c3e50; margin-bottom: 15px;">
                             <i class="fas fa-lightbulb" style="color: #f39c12; margin-right: 10px;"></i>
                             Interested in Collaboration?
                         </h3>
-                        <p style="color: #7f8c8d; margin-bottom: 25px;">I'm always open to discussing new projects
-                            and opportunities</p>
+                        <p style="color: #222; font-weight: 700; font-size: 1.15em; margin-bottom: 25px;">
+                            I'm always open to discussing new projects and opportunities
+                        </p>
                         <a href="#" data-tab="home" class="button alt">
                             <i class="fas fa-envelope" style="margin-right: 8px;"></i>Get In Touch
                         </a>
@@ -684,11 +689,11 @@
 
     <!-- External JavaScript Libraries -->
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <!-- <script src="assets/js/jquery.dropotron.min.js"></script> -->
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- <script src="assets/js/main.js"></script> -->
     <!-- PDF.js for PDF rendering -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <!-- Custom JavaScript Files -->

@@ -73,45 +73,66 @@ function openPdfFullScreen(url) {
 
 document.addEventListener('DOMContentLoaded', function () {
     // Tab navigation logic
-    const navLinks = document.querySelectorAll('#nav ul li a');
+    const navLinks = document.querySelectorAll('#nav ul li a[data-tab]');
     const tabContents = document.querySelectorAll('.tab-content');
 
+    // Helper: Show tab by id and update nav active state
+    function activateTab(tabId) {
+        tabContents.forEach(tab => {
+            if (tab.id === tabId) {
+                tab.classList.add('active');
+                tab.style.display = 'block';
+            } else {
+                tab.classList.remove('active');
+                tab.style.display = 'none';
+            }
+        });
+        navLinks.forEach(link => {
+            if (link.getAttribute('data-tab') === tabId) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    // Attach click handler to nav tabs
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
+            const tabId = this.getAttribute('data-tab');
+            if (tabId) activateTab(tabId);
+        });
+    });
 
-            // Remove .active from all nav links
-            navLinks.forEach(l => l.classList.remove('active'));
-
-            // Add .active to the clicked link
-            this.classList.add('active');
-
-            // Get the tab id (from data-tab or href/hash)
-            let tabId = this.getAttribute('data-tab');
-            if (!tabId) {
-                // fallback: try href="#tabid"
-                const href = this.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    tabId = href.substring(1);
-                }
-            }
-
-            // Hide all tab contents and remove .active
-            tabContents.forEach(tab => {
-                tab.classList.remove('active');
-                tab.style.display = 'none';
-            });
-
-            // Show the selected tab content and add .active
-            if (tabId) {
-                const tab = document.getElementById(tabId);
-                if (tab) {
-                    tab.classList.add('active');
-                    tab.style.display = 'block';
+    // Ensure only one handler for "View All Projects" and "Get In Touch"
+    document.querySelectorAll('[data-tab]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+            const tab = this.getAttribute('data-tab');
+            // Only handle if not already handled by navLinks
+            if (tab && !this.closest('#nav')) {
+                e.preventDefault();
+                activateTab(tab);
+                // Special: scroll to contact section if "Get In Touch"
+                if (tab === 'home' && this.classList.contains('alt')) {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                        setTimeout(() => {
+                            contactSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 100);
+                    }
                 }
             }
         });
     });
+
+    // Show initial tab (first .active or default to 'home')
+    let initialTab = document.querySelector('#nav ul li a.active[data-tab]');
+    if (initialTab) {
+        activateTab(initialTab.getAttribute('data-tab'));
+    } else {
+        activateTab('home');
+    }
 
     // View All Projects button(s)
     document.querySelectorAll('.view-all-projects .button[data-tab="projects"]').forEach(function (el) {
@@ -229,4 +250,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Make each course-list li clickable (navigate to its link)
+    document.querySelectorAll('.course-list li').forEach(function (li) {
+        li.addEventListener('click', function (e) {
+            // Find the first <a> inside the li
+            const link = li.querySelector('a[href]');
+            if (link && link.href) {
+                // Open in new tab if target="_blank", else same tab
+                if (link.target === '_blank') {
+                    window.open(link.href, '_blank');
+                } else {
+                    window.location.href = link.href;
+                }
+            }
+        });
+    });
 });
