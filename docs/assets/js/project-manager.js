@@ -6,18 +6,21 @@ function generateProjects() {
     let projectHTML = '';
 
     projects.forEach((project, index) => {
+        // Use the project's filename from its ID or a custom filename if specified
+        const projectFilename = project.filename || `${project.id}.html`;
+        
         projectHTML += `
             <div class="col-4 col-6-medium col-12-small" style="animation-delay: ${index * 0.1}s;">
                 <section class="box project-card">
-                    <a href="#" class="image featured" onclick="showDetails('${project.id}')" style="display: block; margin-bottom: 20px;">
+                    <a href="projects/${projectFilename}" class="image featured project-card-link">
                         <img src="${project.imgSrc}" alt="${project.alt}" loading="lazy">
                     </a>
                     <header>
-                        <h3><a href="#" onclick="showDetails('${project.id}')">${project.title}</a></h3>
+                        <h3><a href="projects/${projectFilename}">${project.title}</a></h3>
                     </header>
                     <p>${project.description}</p>
                     <footer style="margin-top: 20px;">
-                        <a href="#" class="button alt" onclick="showDetails('${project.id}')">
+                        <a href="projects/${projectFilename}" class="button alt learn-more-btn">
                             <i class="fas fa-arrow-right" style="margin-right: 8px;"></i>Learn More
                         </a>
                     </footer>
@@ -49,18 +52,21 @@ function displaySingleProject(projectId, containerId) {
     const project = projects.find(proj => proj.id === projectId);
 
     if (project) {
+        // Use the project's filename from its ID or a custom filename if specified
+        const projectFilename = project.filename || `${project.id}.html`;
+        
         projectHTML += `
             <div class="col-12">
                 <section class="box project-card">
-                    <a href="#" class="image featured" onclick="showDetails('${project.id}')" style="display: block; margin-bottom: 20px;">
+                    <a href="projects/${projectFilename}" class="image featured project-card-link">
                         <img src="${project.imgSrc}" alt="${project.alt}" loading="lazy">
                     </a>
                     <header>
-                        <h3><a href="#" onclick="showDetails('${project.id}')">${project.title}</a></h3>
+                        <h3><a href="projects/${projectFilename}">${project.title}</a></h3>
                     </header>
                     <p>${project.description}</p>
                     <footer style="margin-top: 20px;">
-                        <a href="#" class="button alt" onclick="showDetails('${project.id}')">
+                        <a href="projects/${projectFilename}" class="button alt learn-more-btn">
                             <i class="fas fa-arrow-right" style="margin-right: 8px;"></i>Learn More
                         </a>
                     </footer>

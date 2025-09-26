@@ -40,7 +40,7 @@
 
 /* Remove extra padding from body since header is not fixed */
 body {
-    padding-top: 0 !important;
+    padding-top: 100px !important;
 }
 
 /* Add spacing above #nav to keep tabs at the top with room */
@@ -505,6 +505,7 @@ body {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
+    text-align: center; /* Center all content including the button */
 }
 
 .lab-report-box {
@@ -541,7 +542,7 @@ body {
 .lab-report-button.alt {
     display: inline-block;
     padding: 12px 25px;
-    background: linear-gradient(135deg, var(--success-color), #229954);
+    background: #397553 !important; /* Dark green color */
     color: white;
     text-decoration: none;
     border-radius: 20px;
@@ -549,14 +550,15 @@ body {
     margin-top: 20px;
     border: none;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 600;
     box-shadow: var(--shadow-light);
+    text-align: center;
 }
 
 .lab-report-button.alt:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-medium);
-    background: linear-gradient(135deg, #229954, var(--success-color));
+    background: #2d5a3f !important; /* Slightly darker on hover */
 }
 
 /* ===== GIF STYLING ===== */
@@ -972,6 +974,20 @@ body {
     word-break: break-word;
 }
 
+/* Make the green box around the Course list and CV slightly larger */
+#contact.box,
+#cv .container,
+#cv .box,
+#courses .container,
+#courses .box {
+    max-width: 1100px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    padding-top: 12px !important;
+    padding-bottom: 24px !important;
+    border-radius: 24px !important;
+}
+
 /* ===== SCROLL ANIMATIONS ===== */
 @keyframes slideInFromBottom {
     from {
@@ -1114,4 +1130,151 @@ body.navPanel-visible #navOverlay { display: block; }
 #contact .contact-cta .button {
   width: 100%;
   max-width: 260px;
+}
+
+/* Project Detail Pane Improvements */
+#project-detail .container {
+    max-width: 1100px;
+    padding: 40px 24px;
+    border-radius: 24px;
+    background: #A9B494 !important;
+    margin: 0 auto;
+}
+
+#project-detail .return-to-projects {
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+#project-detail-content .responsive-img,
+#project-detail-content img.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    border-radius: var(--border-radius, 12px);
+    box-shadow: var(--shadow-medium, 0 4px 20px rgba(0,0,0,0.15));
+}
+
+#project-detail-content .box.post {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: var(--border-radius, 12px);
+    box-shadow: var(--shadow-medium, 0 4px 20px rgba(0,0,0,0.15));
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    #project-detail .container {
+        padding: 20px 8px;
+    }
+    #project-detail-content .box.post {
+        padding: 16px;
+    }
+}
+
+/* Style paragraphs inside .box.post for better readability */
+.box.post p {
+    font-size: 1.2em;   
+    font-weight: 500;   
+    color: #222;       
+    line-height: 1.7;   
+}
+/* Style figure captions */
+.project-detail-content figcaption {
+    font-size: 1.3em;         
+    font-weight: 600;       
+    color: #2c3e50;         
+    text-align: center;     
+    margin-top: 8px;        
+    font-style: normal;     
+}
+/* Style the project title header */
+.project-detail-header h1 {
+    font-size: 2.5em;   
+    font-weight: 700;   
+    text-align: center; 
+    color: #2c3e50;    
+}
+/* Style lists inside .box.post for better readability */
+.box.post ul li {
+    color: #111 !important; 
+    font-size: 1.05em;       
+    font-weight: 500;        
+    line-height: 1.6;        
+}
+/* Style strong text inside list items for emphasis */
+.box.post ul li strong {
+    color: #111;       /* darker than default #222/#333 */
+    font-weight: 700;  /* stronger boldness */
+}
+
+/* Prevent double rendering of project detail due to hashchange */
+#project-detail-content {
+    display: contents !important;
+}
+
+/* Hide original project detail container */
+#project-detail {
+    display: none !important;
+}
+
+/* Style the lab-report-container to center the button */
+.lab-report-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center; /* Center all content including the button */
+}
+
+/* Style the View Full Screen button to match green theme */
+.lab-report-button.alt {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #397553 !important; /* Dark green color */
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: var(--transition);
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: var(--shadow-light);
+    text-align: center;
+}
+
+.lab-report-button.alt:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    background: #2d5a3f !important; /* Slightly darker on hover */
+}
+
+/* Style the Back to Projects button */
+.project-navigation {
+    text-align: center; /* Center the button */
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.project-navigation .nav-back {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #397553 !important; /* Dark green color */
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: var(--transition);
+    font-weight: 600;
+    box-shadow: var(--shadow-light);
+}
+
+.project-navigation .nav-back:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    background: #2d5a3f !important; /* Slightly darker on hover */
+}
+
+.project-navigation .nav-back i {
+    margin-right: 8px;
 }

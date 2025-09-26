@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Title - Rafael Delwart</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Color scheme and backgrounds -->
+    <style>
+        html, body {
+            height: 100%;
+            min-height: 100%;
+            background: #FAF0DC !important;
+        }
+
+        #page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+        }
+
+        .project-content {
+            background: #FAF0DC !important;
+            flex: 1 0 auto;
+            min-height: 60vh;
+            padding: 80px 0 40px 0 !important;
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+    <!-- Mobile title bar + toggle -->
+    <div id="titleBar" aria-label="Main">
+        <button class="toggle" aria-expanded="false" aria-controls="navPanel">
+            <span class="sr-only">Open menu</span>
+        </button>
+    </div>
+
+    <!-- Backdrop overlay for closing the panel on tap -->
+    <div id="navOverlay" hidden></div>
+
+    <!-- Slide-in mobile nav panel -->
+    <nav id="navPanel" aria-hidden="true">
+        <nav>
+            <ul id="navPanelList"></ul>
+        </nav>
+    </nav>
+
+    <div id="page-wrapper">
+        <!-- Header -->
+        <section id="header" style="background: #FAF0DC !important; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+            <!-- Navigation (Tabs) -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="../index.html" data-tab="home">Home</a></li>
+                    <li><a href="../index.html#cv" data-tab="cv">CV</a></li>
+                    <li><a href="../index.html#projects" data-tab="projects">Projects</a></li>
+                    <li><a href="../index.html#courses" data-tab="courses">Courses</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Main Content -->
+        <section class="project-content">
+            <div class="container">
+                <div class="project-detail">
+                    <div class="project-detail-header">
+                        <h1>Project Title</h1>
+                        <div class="project-detail-tags">
+                            <span class="project-tag">Tag 1</span>
+                            <span class="project-tag">Tag 2</span>
+                            <span class="project-tag">Tag 3</span>
+                        </div>
+                    </div>
+
+                    <div class="project-detail-content">
+                        <!-- Project content goes here -->
+                        <p>Project description and details go here...</p>
+                        
+                        <!-- Example: Image gallery -->
+                        <div class="project-detail-gallery">
+                            <div class="gallery-item">
+                                <img src="../path/to/image.jpg" alt="Project image">
+                            </div>
+                        </div>
+
+                        <!-- Example: Video container -->
+                        <div class="video-container-autonmous-bot">
+                            <video controls width="100%">
+                                <source src="../path/to/video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <!-- Example: PDF report link -->
+                        <div class="lab-report-container">
+                            <section class="lab-report-box">
+                                <header>
+                                    <h2>Detailed Report</h2>
+                                </header>
+                                <a href="../path/to/report.pdf" target="_blank" class="lab-report-pdf-link">
+                                    <img src="../path/to/thumbnail.jpg" alt="Report Thumbnail" class="lab-report-thumbnail">
+                                </a>
+                                <footer>
+                                    <button class="lab-report-button alt lab-report-fullscreen-button open-pdf-fullscreen" 
+                                            data-pdf-url="../path/to/report.pdf">View Full Screen</button>
+                                </footer>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- Project navigation -->
+                    <div class="project-navigation">
+                        <a href="../index.html#projects" class="nav-back">
+                            <i class="fas fa-arrow-left"></i> Back to Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back to top button -->
+            <a href="#" class="back-to-top" id="backToTop">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </section>
+
+        <!-- Footer section if needed -->
+    </div>
+
+    <!-- External JavaScript Libraries -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/projects.js"></script>
+    <script src="../assets/js/pdf-handler.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    
+    <!-- Back to top button script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+        });
+    </script>
+</body>
+</html>

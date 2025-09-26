@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Purpose Adjustable Bipolar DC Voltage Supply - Rafael Delwart</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Color scheme and backgrounds -->
+    <style>
+        html, body {
+            height: 100%;
+            min-height: 100%;
+            background: #FAF0DC !important;
+        }
+
+        #page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+        }
+
+        .project-content {
+            background: #FAF0DC !important;
+            flex: 1 0 auto;
+            min-height: 60vh;
+            padding: 80px 0 40px 0 !important;
+        }
+        
+        /* Change box background to light green */
+        .box {
+            background: #A9B494 !important;
+        }
+        
+        /* Make post sections light green */
+        .box.post {
+            background: #A9B494 !important;
+        }
+        
+        /* Remove green line under the h1 title */
+        .project-detail-header h1:after {
+            display: none;
+        }
+        
+        /* Improve title text spacing and readability */
+        .project-detail-header h1 {
+            line-height: 1;
+            letter-spacing: 0.01em;
+            word-spacing: 0.05em;
+            padding-bottom: 0;
+            margin-bottom: 30px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+    <!-- Mobile title bar + toggle -->
+    <div id="titleBar" aria-label="Main">
+        <button class="toggle" aria-expanded="false" aria-controls="navPanel">
+            <span class="sr-only">Open menu</span>
+        </button>
+    </div>
+
+    <!-- Backdrop overlay for closing the panel on tap -->
+    <div id="navOverlay" hidden></div>
+
+    <!-- Slide-in mobile nav panel -->
+    <nav id="navPanel" aria-hidden="true">
+        <nav>
+            <ul id="navPanelList"></ul>
+        </nav>
+    </nav>
+
+    <div id="page-wrapper">
+        <!-- Header -->
+        <section id="header" style="background: #FAF0DC !important; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+            <!-- Navigation (Tabs) -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="../index.html" data-tab="home">Home</a></li>
+                    <li><a href="../index.html#cv" data-tab="cv">CV</a></li>
+                    <li><a href="../index.html#projects" data-tab="projects">Projects</a></li>
+                    <li><a href="../index.html#courses" data-tab="courses">Courses</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Main Content -->
+        <section class="project-content">
+            <div class="container">
+                <div class="project-detail">
+                    <div class="project-detail-header">
+                        <h1>General Purpose Adjustable Bipolar DC Voltage Supply</h1>
+                    </div>
+
+                    <div class="project-detail-content">
+                        <!-- Project Overview -->
+                        <section class="box post">
+                            <figure>
+                                <img class="responsive-img" src="../images/Voltage_Supply_Project_BreadBoard.jpeg"
+                                    alt="Breadboard setup for Adjustable Bipolar DC Voltage Supply Project">
+                                <figcaption>Adjustable Bipolar DC Voltage Supply Breadboard Setup</figcaption>
+                            </figure>
+
+                            <header>
+                                <h3>Overview</h3>
+                            </header>
+                            <p>This power supply is designed for delivering variable current while maintaining high
+                                stability. It uses 3-terminal linear voltage regulators and half-wave rectifiers to
+                                provide reliable performance, making it ideal for a variety of electronic projects requiring
+                                bipolar power supplies.</p>
+                        </section>
+
+                        <!-- Wiring Diagram Section -->
+                        <section class="box post">
+                            <header>
+                                <h3>Wiring Diagram</h3>
+                            </header>
+                            <figure>
+                                <img class="responsive-img" src="../images/Voltage_Supply_Wiring_diagram.jpg"
+                                    alt="Schematic Wiring Diagram for Adjustable Bipolar DC Voltage Supply">
+                                <figcaption>Detailed wiring diagram with pin numbers and component values.</figcaption>
+                            </figure>
+                            <p>The diagram illustrates the wiring setup for the breadboard, featuring pin numbers and
+                                component values to facilitate easy assembly and testing. The transformer shown as T1
+                                steps down the input AC voltage from 120V AC to 18V RMS (1000 mA capacity).
+                                The transformer provides two AC outputs which will be used to generate both positive
+                                and negative voltage rails.</p>
+                                
+                            <h4>Components and Their Functions</h4>
+                            <ul>
+                                <li><strong>D1 and D2 (1N4001 diodes):</strong> Act as rectifiers in a half-wave configuration.
+                                    D1 handles the positive half-cycles, and D2 handles the negative half-cycles of the AC
+                                    signal from the transformer, converting the AC signal into pulsating DC signals.</li>
+                                    
+                                <li><strong>C1 and C2 (1000 µF electrolytic capacitors):</strong> Smooth the pulsating DC
+                                    signals to produce a more stable DC voltage. They reduce the ripple
+                                    voltage before it reaches the regulators.</li>
+                                    
+                                <li><strong>C3 and C4 (1 µF capacitors):</strong> Placed at the output of the LM317
+                                    and LM337 regulators to improve stability and reduce high-frequency noise.
+                                    TI recommends that the input terminal be bypassed to ground with a bypass capacitor,
+                                    with optimal placement closest to the input terminal of the device and the system GND.</li>
+                                    
+                                <li><strong>LM317:</strong> An adjustable positive voltage regulator for the positive
+                                    voltage side of the circuit. It has three pins: IN, OUT, and ADJ (adjustment pin for
+                                    controlling the output voltage).</li>
+                                    
+                                <li><strong>LM337:</strong> The counterpart for the negative rail, an adjustable negative voltage
+                                    regulator.</li>
+                                    
+                                <li><strong>R1, R2, and R7 (positive rail):</strong> Create a voltage divider. R1 is a fixed
+                                    resistor, while R2 is a 5k potentiometer that adjusts the output voltage. R7, which is
+                                    in parallel with R2, fine-tunes the adjustment range of R2.</li>
+                                    
+                                <li><strong>R4, R3, and R5 (negative rail):</strong> Create a similar voltage divider
+                                    for the negative voltage adjustment.</li>
+                                    
+                                <li><strong>R6:</strong> Sets the lower bound for the negative rail at about -3V.</li>
+                            </ul>
+                            
+                            <p>The final output of this power supply can be fine-tuned to provide adjustable voltages
+                                in the range of approximately +/- 3V to +/- 16V, making it highly versatile for various
+                                electronic applications and testing scenarios.</p>
+                        </section>
+                        
+                        <!-- Technical Specifications -->
+                        <section class="box post">
+                            <header>
+                                <h3>Technical Specifications</h3>
+                            </header>
+                            <ul>
+                                <li><strong>Input:</strong> 120V AC</li>
+                                <li><strong>Output:</strong> Adjustable +/-3V to +/-16V DC</li>
+                                <li><strong>Current Rating:</strong> Up to 250mA</li>
+                                <li><strong>Regulation:</strong> 3-terminal linear voltage regulators</li>
+                                <li><strong>Ripple Rejection:</strong> High, due to capacitive filtering</li>
+                            </ul>
+                        </section>
+                    </div>
+
+                    <!-- Project navigation -->
+                    <div class="project-navigation">
+                        <a href="../index.html#projects" class="nav-back">
+                            <i class="fas fa-arrow-left"></i> Back to Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back to top button -->
+            <a href="#" class="back-to-top" id="backToTop">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </section>
+    </div>
+
+    <!-- External JavaScript Libraries -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/projects.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    
+    <!-- Back to top button script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+            
+            // Handle mobile navigation
+            const body = document.body;
+            const panel = document.getElementById('navPanel');
+            const panelList = document.getElementById('navPanelList');
+            const toggleBtn = document.querySelector('#titleBar .toggle');
+            const overlay = document.getElementById('navOverlay');
+
+            if (panel && panelList && toggleBtn && overlay) {
+                // Build the mobile menu from the desktop one
+                function buildNavPanel() {
+                    const desktopLinks = document.querySelectorAll('#nav > ul > li > a');
+                    panelList.innerHTML = '';
+                    desktopLinks.forEach(a => {
+                        const li = document.createElement('li');
+                        const clone = a.cloneNode(true);
+                        clone.removeAttribute('tabindex');
+                        li.appendChild(clone);
+                        panelList.appendChild(li);
+                    });
+                }
+
+                function openPanel() {
+                    body.classList.add('navPanel-visible');
+                    panel.setAttribute('aria-hidden', 'false');
+                    toggleBtn.setAttribute('aria-expanded', 'true');
+                    overlay.hidden = false;
+                }
+
+                function closePanel() {
+                    body.classList.remove('navPanel-visible');
+                    panel.setAttribute('aria-hidden', 'true');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                    overlay.hidden = true;
+                }
+
+                toggleBtn.addEventListener('click', () => {
+                    if (body.classList.contains('navPanel-visible')) closePanel(); else openPanel();
+                });
+                overlay.addEventListener('click', closePanel);
+                panel.addEventListener('click', (e) => {
+                    if (e.target.closest('a')) closePanel();
+                });
+
+                buildNavPanel();
+            }
+        });
+    </script>
+</body>
+</html>
