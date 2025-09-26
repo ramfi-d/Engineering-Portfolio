@@ -1,6 +1,6 @@
 # Rafael Delwart Portfolio Website
 
-This repository contains the source code and assets for Rafael Delwart's personal portfolio website. The site is a static, single-page application designed to showcase engineering projects, coursework, and a dynamically updated CV. It is built with HTML, CSS, JavaScript, and LaTeX for the CV, and is structured for deployment via GitHub Pages.
+This repository contains the source code and assets for my personal portfolio website. The site is a static, single-page application designed to showcase engineering projects, coursework, and a dynamically updated CV. It is built with HTML, CSS, JavaScript, and LaTeX for the CV, and is structured for deployment via GitHub Pages.
 
 ## Architecture and Structure
 
@@ -30,14 +30,14 @@ The visual design is based on a heavily customized version of the HTML5 UP Dopet
 
 ## Design Philosophy
 
-The site is engineered for maintainability and automation. Project data and content are separated from presentation logic, making it easy to add or update projects and coursework. The CV workflow ensures that the latest academic and professional information is always available without manual intervention. The use of modern CSS and JavaScript patterns provides a clean, interactive user experience.
+The site is engineered for maintainability and automation. Project data and content are separated from presentation logic, making it easy to add or update projects and coursework. The CV workflow ensures that the latest academic and professional information is always available without manual intervention. The use of  CSS and JavaScript  provides a clean, interactive user experience.
 
 ---
    - This script compiles the LaTeX file to `Rafael_Delwart_CV.pdf`.
    - It then copies the PDF to `docs/Resume/Rafael_Delwart_CV.pdf` so the website always serves the latest version.
    - If the repository is under git version control, the script will automatically commit the updated PDF files if there are changes.
 
-3. **Deploy**: Commiting and pushing the changes to GitHub. GitHub Pages will serve the updated CV automatically.
+3. **Deploy**: Commiting and pushing the changes to GitHub. GitHub Pages will update the CV and Website automatically.
 
 
 
