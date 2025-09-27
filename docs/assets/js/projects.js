@@ -60,14 +60,13 @@ const projects = [
         githubLink: 'https://github.com/username/autonomous-robot',
         demoLink: 'assets/Reports_PDFs/Lab_0_ECE118.pdf'
     },
-    // Wet/Dry Cycling System Project
     {
-        id: "Wet_Dry.html",
+        id: "project6-details",
         filename: "Wet_Dry.html",
         title: "Wet/Dry Cycling System",
         description: "An automated device that simulates prebiotic hydrothermal pools to study RNA polymerization, developed in collaboration with Professor David Deamer at UCSC.",
         imgSrc: "assets/images/Deamer_Device_Setup_Lab.jpg",
-        alt: "Wet/Dry Cycling System installed in UCSC laboratory",
+        alt: "Wet/Dry Cycling System installed in Deamer's laboratory",
         fullDescription: "This project involved creating an automated wet/dry cycling device to simulate prebiotic conditions for RNA polymerization research.",
         technologies: ["Embedded Systems", "Engineering Leadership", "Hardware Design", "Web Interface"],
         githubLink: "#",

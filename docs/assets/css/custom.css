@@ -1278,3 +1278,35 @@ body.navPanel-visible #navOverlay { display: block; }
 .project-navigation .nav-back i {
     margin-right: 8px;
 }
+
+/* Ensure exactly 3 columns on larger screens but maintain responsive behavior */
+#projects-container {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important; /* Force 3 equal columns */
+  gap: 32px !important;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Keep existing responsive behavior */
+@media (max-width: 1200px) {
+  #projects-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 800px) {
+  #projects-container {
+    grid-template-columns: 1fr !important; /* One column on small screens */
+  }
+}
+
+/* Fix project cards to ensure proper layout */
+.project-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}

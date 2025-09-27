@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', function () {
     generateProjects();
     
     // Generate 3 different projects for the main tab with stagger effect
-    const homeProjects = ['project1-details', 'project2-details', 'project3-details'];
-    const homeContainers = ['project1-container', 'project2-container', 'project3-container'];
+    const homeProjects = ['project6-details', 'project5-details', 'project3-details'];
+    const homeContainers = ['project1-container', 'project2-container', 'project3-container']; // Fixed: Changed 'project6-container' to 'project1-container'
     
     homeProjects.forEach((projectId, index) => {
         setTimeout(() => {
