@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wet/Dry Cycling System - Engineering Portfolio</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    html, body {
+      height: 100%;
+      min-height: 100%;
+      background: #FAF0DC !important;
+    }
+
+    #page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: transparent;
+    }
+
+    .project-content {
+      background: #FAF0DC !important;
+      flex: 1 0 auto;
+      min-height: 60vh;
+      padding: 80px 0 40px 0 !important;
+    }
+    
+    .box { background: #A9B494 !important; }
+    .box.post { background: #A9B494 !important; }
+    
+    /* Remove green line under the h1 title */
+    .project-detail-header h1:after {
+      display: none;
+    }
+    
+    /* Improve title text spacing and readability */
+    .project-detail-header h1 {
+      line-height: 1.3;
+      letter-spacing: 0.01em;
+      word-spacing: 0.05em;
+      padding-bottom: 0;
+      margin-bottom: 30px;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .pptx-iframe-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      margin: 30px 0;
+    }
+    .pptx-iframe-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+      border-radius: var(--border-radius);
+    }
+    figure {
+      margin: 30px auto;
+      text-align: center;
+    }
+    figure img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    figure figcaption {
+      margin-top: 12px;
+      font-size: 1.1em;
+      font-style: italic;
+      color: #333;
+    }
+    
+    /* Enhance emphasized text to make it bolder and more distinct */
+    .box.post em {
+      font-weight: 600;
+      font-style: italic;
+      color: #1a1a1a;
+      background-color: rgba(169, 180, 148, 0.15); /* Light green background */
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+    
+    /* Ensure regular text is properly styled */
+    .box.post p {
+      font-size: 1.2em;
+      font-weight: 500;
+      color: #222;
+      line-height: 1.7;
+      margin-bottom: 1em;
+    }
+    
+    /* Make strong text more prominent */
+    .box.post strong {
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+  </style>
+</head>
+
+<body class="is-preload">
+  <!-- Mobile title bar + toggle -->
+  <div id="titleBar" aria-label="Main">
+    <button class="toggle" aria-expanded="false" aria-controls="navPanel">
+      <span class="sr-only">Open menu</span>
+    </button>
+  </div>
+
+  <!-- Backdrop overlay for closing the panel on tap -->
+  <div id="navOverlay" hidden></div>
+
+  <!-- Slide-in mobile nav panel -->
+  <nav id="navPanel" aria-hidden="true">
+    <nav>
+      <ul id="navPanelList"></ul>
+    </nav>
+  </nav>
+
+  <div id="page-wrapper">
+    <!-- Header -->
+    <section id="header" style="background: #FAF0DC !important; box-shadow: 0 2px 12px rgba(0,0,0,0.04);">
+      <!-- Navigation (Tabs) -->
+      <nav id="nav">
+        <ul>
+          <li><a href="../index.html" data-tab="home">Home</a></li>
+          <li><a href="../index.html#cv" data-tab="cv">CV</a></li>
+          <li><a href="../index.html#projects" data-tab="projects">Projects</a></li>
+          <li><a href="../index.html#courses" data-tab="courses">Courses</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Main Content -->
+    <section class="project-content">
+      <div class="container">
+        <div class="project-detail">
+          <div class="project-detail-header">
+            <h1>Wet/Dry Cycling Device for David Deamer's Research in Non-Enzymatic RNA Synthesis</h1>
+          </div>
+
+          <div class="project-detail-content">
+            <!-- Featured Image -->
+            <section class="box post">
+              <header><h3>The Device in Action</h3></header>
+              <figure>
+                <img src="../assets/images/Deamer_Device_Setup_Lab.jpg" alt="Device Setup in Lab" style="max-width: 80%;">
+                <figcaption>The final Wet/Dry Cycler installed in the laboratory for experimental use</figcaption>
+              </figure>
+            </section>
+
+            <!-- Poster -->
+            <section class="box post">
+              <header><h3>Project Poster</h3></header>
+              <figure>
+                <a href="../assets/Reports_PDFs/Team20_Wet&DryPoster.pdf" target="_blank">
+                  <img src="../assets/images/Wet_Dry_Poster.jpg" alt="Wet/Dry Cycler Project Poster" class="responsive-img">
+                </a>
+                <figcaption>Official project poster summarizing the Wet/Dry Cycler design, capabilities, and research applications.</figcaption>
+              </figure>
+            </section>
+
+            <!-- Origin Story -->
+            <section class="box post">
+              <header><h3>Project Origin and Leadership</h3></header>
+              <p>
+                This project began when I reached out to <strong>Professor David Deamer</strong>, a pioneer in origins-of-life research,
+                asking if he had a problem suitable for a team of robotics engineers. He challenged us to design an
+                automated wet/dry cycling device to simulate prebiotic hydrothermal pools—conditions believed to be
+                crucial for RNA polymerization. I then formally proposed the concept to my class, chose a team of five engineers from a pool of applicants,
+                and served as both technical lead and project manager.
+              </p>
+              <p>
+                Over the course of the year, I managed the full engineering cycle—from brainstorming and subsystem design,
+                to integration, testing, and delivery. I also worked closely with Professor Deamer and his postdoc, <strong>Vikas Peddu</strong>,
+                to ensure the final system could be immediately deployed in their lab for real experiments.
+              </p>
+            </section>
+
+            <!-- Top Level Diagram -->
+            <section class="box post">
+              <header><h3>System Architecture</h3></header>
+              <p>
+                The Wet/Dry Cycler integrates multiple subsystems: <strong>dehydration, rehydration, mixing,
+                gas delivery, sample extraction, embedded control, and a web-based GUI</strong>. At the heart of the device
+                is an ESP32-S3 microcontroller orchestrating all subsystems via a finite state machine, with
+                real-time monitoring and control through a React/Node.js web interface.
+              </p>
+              <figure>
+                <a href="../assets/Reports_PDFs/Top_Level_V3.2drawio.pdf" target="_blank">
+                  <img src="../assets/images/Top_Level_V3.2.jpg" alt="System Architecture Block Diagram" class="responsive-img-smaller" style="max-width: 55%;">
+                </a>
+                <figcaption>Top-Level V3.2 System Block Diagram, showing the integration of electronics, mechanics, and software</figcaption>
+              </figure>
+            </section>
+
+            <!-- Subsystem Overview - Moved above Device Design section -->
+            <section class="box post">
+              <header><h3>Subsystem Engineering</h3></header>
+              <p><strong>Heating:</strong> A 12V/200W silicone pad bonded to a 2024 aluminum plate provided uniform heating. Temperature feedback was regulated with bang-bang control to maintain ±2 °C.</p>
+              <p><strong>Rehydration:</strong> A custom syringe pump with NEMA-17 stepper and 13-port PTFE manifold dispensed ~100 µL water per cycle with ±13% precision. Tubing resistance was tuned to equalize flow.</p>
+              <p><strong>Mixing:</strong> Magnetic stir bars driven by DC motors enabled independent mixing of three vial zones. MOSFET drivers allowed precise on/off control.</p>
+              <p><strong>Gas Delivery:</strong> A manifold distributed CO₂ or N₂ across vial zones, supporting dehydration and atmosphere control.</p>
+              <p><strong>Sample Extraction:</strong> The vial plate moved via stepper-driven linear motion into an extraction zone, where pipettes accessed samples through silicone plugs.</p>
+              <p><strong>Electronics & PCB:</strong> A custom PCB consolidated power distribution, MOSFET switching, DRV8825 drivers, and signal routing. Following IPC-2221 standards, it ensured reliability under high current loads.</p>
+              <p><strong>Embedded Control:</strong> ESP32 firmware ran a robust finite state machine (IDLE → REHYDRATING → MIXING → HEATING → EXTRACTION). Communication with the front end was maintained via WebSockets.</p>
+              <p><strong>User Interface:</strong> A React-based GUI allowed researchers to configure cycles, monitor progress, and log data. Recovery state JSON handling ensured resilience to disconnections.</p>
+            </section>
+
+            <!-- Presentation - Moved above Device Design section -->
+            <section class="box post">
+              <header><h3>Design Defense Presentation</h3></header>
+              <div class="pptx-iframe-wrapper">
+                <iframe src="https://docs.google.com/presentation/d/1wRPhKyZEESOnTZ-7ShTznkyYpnyEWwFMWrafc6taKrw/embed?start=true&loop=true&delayms=5000"></iframe>
+              </div>
+              <div style="text-align: center; margin-top: 20px; display: flex; justify-content: center;">
+                <a href="../assets/Reports_PDFs/ECE129C_Design_Defense.pptx" class="button alt" style="background: #397553 !important; color: #fff !important; border-radius: 20px; padding: 12px 24px; font-weight: 600; display: inline-flex; align-items: center; margin: 0 auto;">
+                  <i class="fas fa-download" style="margin-right: 10px;"></i> Download the full PowerPoint
+                </a>
+              </div>
+            </section>
+
+            <!-- Images - Now placed after Presentation -->
+            <section class="box post">
+              <header><h3>Device Design and Implementation</h3></header>
+
+              <figure>
+                <a href="../assets/images/Deamer_Device_Model.png" target="_blank">
+                  <img src="../assets/images/Deamer_Device_Model.png" alt="Device CAD Model"  style="max-width: 70%;">
+                </a>
+                <figcaption>CAD rendering of the complete device with subsystems integrated</figcaption>
+              </figure>
+              <figure>
+                <img src="../assets/images/Deamer_Device_Top_View_Real.jpg" alt="Device Top View" style="max-width: 45%;">
+                <figcaption>Top view of the completed hardware with vial platform, heating pad, and tubing in place</figcaption>
+              </figure>
+              
+              <!-- Adding the two new images -->
+              <figure>
+                <a href="../assets/images/Deamer_Front_End_Controls.png" target="_blank">
+                  <img src="../assets/images/Deamer_Front_End_Controls.png" alt="Web Interface Controls">
+                </a>
+                <figcaption>Web-based control interface allowing researchers to monitor and control the wet/dry cycling process</figcaption>
+              </figure>
+              <figure>
+                <a href="../assets/images/Deamer_Front_End_Parameter.png" target="_blank">
+                  <img src="../assets/images/Deamer_Front_End_Parameter.png" alt="Cycle Parameters Configuration">
+                </a>
+                <figcaption>Parameter configuration panel for setting cycle duration, temperature thresholds, and other experimental variables</figcaption>
+              </figure>
+              
+              <figure>
+                <a href="../assets/images/Deamer_PCB_Silk_Screen.png" target="_blank">
+                  <img src="../assets/images/Deamer_PCB_Silk_Screen.png" alt="PCB Silkscreen" style="max-width: 90%;">
+                </a>
+                <figcaption>Custom-designed PCB integrating ESP32, MOSFETs, stepper drivers, and power distribution</figcaption>
+              </figure>
+            </section>
+
+            <!-- Hands-On Training -->
+            <section class="box post">
+              <header><h3>Delivery, Training, and User Manual</h3></header>
+              <p>
+                Beyond building the device, we provided <strong>hands-on training sessions</strong> in Professor Deamer's Research Lab,
+                going through setup, operation, and troubleshooting. A detailed
+                <a href="../assets/Reports_PDFs/User_Guide_Wet_Dry_Cycler.pdf" target="_blank">User Guide</a> documents step-by-step instructions
+                for powering, networking, priming, experiment setup, and error handling.
+              </p>
+              <p>
+                This ensured that the Wet/Dry Cycler was not just a prototype, but a usable tool
+                for ongoing origins-of-life research in Professor Deamer's group.
+              </p>
+            </section>
+
+            <!-- Final Project Report - New Section -->
+            <section class="box post">
+              <header><h3>Final Project Report</h3></header>
+              
+              <div class="lab-report-container">
+                <a href="../assets/Reports_PDFs/Wet_Dry_Cycling_Final_Report.pdf" target="_blank" class="lab-report-pdf-link">
+                  <img src="../assets/images/Wet_Dry_Report_Cover.png" alt="Wet/Dry Cycling Final Report Cover" class="lab-report-thumbnail">
+                </a>
+                
+                <footer>
+                  <button class="lab-report-button alt lab-report-fullscreen-button open-pdf-fullscreen"
+                    data-pdf-url="../assets/Reports_PDFs/Wet_Dry_Cycling_Final_Report.pdf">View Full Screen</button>
+                </footer>
+              </div>
+            </section>
+
+            <!-- Leadership Lessons -->
+            <section class="box post">
+              <header><h3>Leadership and Takeaways</h3></header>
+              <p>
+                Leading this project was as much about <strong>engineering leadership</strong> as technical design. Managing
+                a five-person team taught me how to:
+              </p>
+              <ul>
+                <li>Delegate subsystem ownership while maintaining system-wide integration.</li>
+                <li>Balance technical rigor with timeline and budget constraints.</li>
+                <li>Communicate with stakeholders (faculty, postdocs, classmates) and align priorities.</li>
+                <li>Document engineering work according to professional standards (IPC, ANSI, IEEE).</li>
+              </ul>
+              <p>
+                By the end of the project, I had gained invaluable experience in both <strong>system engineering</strong>
+                and <strong>team management</strong>, while delivering a full-fledged product that is now actively
+                supporting experimental RNA synthesis research.
+              </p>
+            </section>
+          </div>
+
+          <!-- Navigation -->
+          <div class="project-navigation">
+            <a href="../index.html#projects" class="nav-back">
+              <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Back to top button -->
+      <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </section>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/browser.min.js"></script>
+  <script src="../assets/js/breakpoints.min.js"></script>
+  <script src="../assets/js/util.js"></script>
+  <script src="../assets/js/projects.js"></script>
+  <script src="../assets/js/navigation.js"></script>
+  
+  <!-- Back to top button script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTop = document.getElementById('backToTop');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+      
+      backToTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      });
+      
+      // Handle mobile navigation
+      const body = document.body;
+      const panel = document.getElementById('navPanel');
+      const panelList = document.getElementById('navPanelList');
+      const toggleBtn = document.querySelector('#titleBar .toggle');
+      const overlay = document.getElementById('navOverlay');
+
+      if (panel && panelList && toggleBtn && overlay) {
+        // Build the mobile menu from the desktop one
+        function buildNavPanel() {
+          const desktopLinks = document.querySelectorAll('#nav > ul > li > a');
+          panelList.innerHTML = '';
+          desktopLinks.forEach(a => {
+            const li = document.createElement('li');
+            const clone = a.cloneNode(true);
+            clone.removeAttribute('tabindex');
+            li.appendChild(clone);
+            panelList.appendChild(li);
+          });
+        }
+
+        function openPanel() {
+          body.classList.add('navPanel-visible');
+          panel.setAttribute('aria-hidden', 'false');
+          toggleBtn.setAttribute('aria-expanded', 'true');
+          overlay.hidden = false;
+        }
+
+        function closePanel() {
+          body.classList.remove('navPanel-visible');
+          panel.setAttribute('aria-hidden', 'true');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          overlay.hidden = true;
+        }
+
+        toggleBtn.addEventListener('click', () => {
+          if (body.classList.contains('navPanel-visible')) closePanel(); else openPanel();
+        });
+        overlay.addEventListener('click', closePanel);
+        panel.addEventListener('click', (e) => {
+          if (e.target.closest('a')) closePanel();
+        });
+
+        buildNavPanel();
+      }
+    });
+  </script>
+</body>
+</html>

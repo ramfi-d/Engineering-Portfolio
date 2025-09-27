@@ -6,7 +6,7 @@ if (window['pdfjsLib']) {
 }
 
 function renderPdfAsImage() {
-    var url = 'Resume/Rafael_Delwart_CV.pdf';
+    var url = 'assets/Reports_PDFs/Rafael_Delwart_CV.pdf';
     var canvas = document.getElementById('pdf-canvas');
     var loading = document.getElementById('pdf-loading');
     var fallback = document.getElementById('pdf-fallback');
