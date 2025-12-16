@@ -28,10 +28,6 @@ The visual design is based on a heavily customized version of the HTML5 UP Dopet
 - **Static Hosting:** All assets are static and require no backend. Deployment is as simple as pushing to the repository's default branch.
 - **PDF.js Integration:** PDF previews are rendered client-side, requiring no server-side processing.
 
-## Design Philosophy
-
-The site is engineered for maintainability and automation. Project data and content are separated from presentation logic, making it easy to add or update projects and coursework. The CV workflow ensures that the latest academic and professional information is always available without manual intervention. The use of  CSS and JavaScript  provides a clean, interactive user experience.
-
 ---
    - This script compiles the LaTeX file to `Rafael_Delwart_CV.pdf`.
    - It then copies the PDF to `docs/Resume/Rafael_Delwart_CV.pdf` so the website always serves the latest version.
@@ -56,3 +52,4 @@ The site is engineered for maintainability and automation. Project data and cont
 
 
 ---
+ 

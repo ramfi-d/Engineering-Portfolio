@@ -12,6 +12,11 @@ if [ -f "Rafael_Delwart_CV.pdf" ]; then
         cp "Rafael_Delwart_CV.pdf" "../docs/Resume/Rafael_Delwart_CV.pdf"
         echo "Copied PDF to docs/Resume for GitHub Pages"
     fi
+    # Also copy main.pdf to the site assets used by the CV iframe/buttons
+    if [ -d "../docs/assets/Reports_PDFs" ]; then
+        cp "main.pdf" "../docs/assets/Reports_PDFs/main.pdf"
+        echo "Copied main.pdf to docs/assets/Reports_PDFs"
+    fi
     
     # Check if we're in a git repository and if there are changes to commit
     if git rev-parse --git-dir > /dev/null 2>&1; then

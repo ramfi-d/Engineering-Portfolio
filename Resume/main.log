@@ -1,10 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.14)  15 DEC 2025 17:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.14)  15 DEC 2025 17:58
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/Rafde/Documents/Website/Resume/main.tex
-(c:/Users/Rafde/Documents/Website/Resume/main.tex
+**./main.tex
+(main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\Users\Rafde\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -348,8 +347,8 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 LaTeX Warning: Unused global option(s):
     [9pt].
 
-(Rafael_Delwart_CV.aux)
-\openout1 = `Rafael_Delwart_CV.aux'.
+No file main.aux.
+\openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
@@ -369,7 +368,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -421,9 +419,8 @@ ii
 \everyMPtoPDFconversion=\toks24
 )
 Package hyperref Info: Link coloring OFF on input line 22.
- (Rafael_Delwart_CV.out) (Rafael_Delwart_CV.out)
 \@outlinefile=\write3
-\openout3 = `Rafael_Delwart_CV.out'.
+\openout3 = `main.out'.
 
 LaTeX Info: Redefining \microtypecontext on input line 22.
 Package microtype Info: Applying patch `item' on input line 22.
@@ -442,8 +439,7 @@ Package microtype Info: Patching command `\showhyphens'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
-
-(C:\Users\Rafde\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
+ (C:\Users\Rafde\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
@@ -462,8 +458,8 @@ ional projects avail-able at: [][][][][][]
 [1
 
 {C:/Users/Rafde/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-c:/Users/Rafde/Documents/Website/Resume/main.tex:99: pdfTeX error (font expansi
-on): auto expansion is only possible with scalable fonts.
+! pdfTeX error (font expansion): auto expansion is only possible with scalable 
+fonts.
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.99 \end{document}
@@ -471,12 +467,11 @@ l.99 \end{document}
 
  
 Here is how much of TeX's memory you used:
- 11696 strings out of 474486
- 185784 string characters out of 5743755
+ 11686 strings out of 474486
+ 185259 string characters out of 5743755
  1946542 words of memory out of 5000000
- 33811 multiletter control sequences out of 15000+600000
+ 33809 multiletter control sequences out of 15000+600000
  564438 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,5n,79p,1041b,440s stack positions out of 10000i,1000n,20000p,200000b,200000s
-c:/Users/Rafde/Documents/Website/Resume/main.tex:99:  ==> Fatal error occurred,
- no output PDF file produced!
+ 75i,5n,79p,1003b,440s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!

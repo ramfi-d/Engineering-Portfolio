@@ -72,12 +72,17 @@ function openPdfFullScreen(url) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Detect if this page actually has tabbed content (index.html)
+    const hasTabs = document.querySelector('#main .tab-content') !== null;
+    const getHashTab = () => (window.location.hash || '').replace('#', '');
+
     // Tab navigation logic
     const navLinks = document.querySelectorAll('#nav ul li a[data-tab]');
     const tabContents = document.querySelectorAll('.tab-content');
 
     // Helper: Show tab by id and update nav active state
     function activateTab(tabId) {
+        if (!hasTabs) return;
         tabContents.forEach(tab => {
             if (tab.id === tabId) {
                 tab.classList.add('active');
@@ -94,11 +99,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 link.classList.remove('active');
             }
         });
+        // Update URL hash without jumping
+        if (tabId) {
+            const newHash = '#' + tabId;
+            if (window.location.hash !== newHash) history.replaceState(null, '', newHash);
+        }
     }
 
     // Attach click handler to nav tabs
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
+            if (!hasTabs) return; // allow normal navigation on project pages
             e.preventDefault();
             const tabId = this.getAttribute('data-tab');
             if (tabId) activateTab(tabId);
@@ -108,6 +119,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Ensure only one handler for "View All Projects" and "Get In Touch"
     document.querySelectorAll('[data-tab]').forEach(function (el) {
         el.addEventListener('click', function (e) {
+            if (!hasTabs || this.closest('#nav')) return; // skip on project pages or nav links already handled
+            e.preventDefault();
             const tab = this.getAttribute('data-tab');
             // Only handle if not already handled by navLinks
             if (tab && !this.closest('#nav')) {
@@ -126,17 +139,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Show initial tab (first .active or default to 'home')
-    let initialTab = document.querySelector('#nav ul li a.active[data-tab]');
-    if (initialTab) {
-        activateTab(initialTab.getAttribute('data-tab'));
-    } else {
-        activateTab('home');
+    // Show initial tab (use hash if present, else first .active, else home)
+    if (hasTabs) {
+        const hashTab = getHashTab();
+        const hashTarget = hashTab && document.getElementById(hashTab);
+        if (hashTarget) {
+            activateTab(hashTab);
+        } else {
+            let initialTab = document.querySelector('#nav ul li a.active[data-tab]');
+            activateTab(initialTab ? initialTab.getAttribute('data-tab') : 'home');
+        }
     }
 
     // View All Projects button(s)
     document.querySelectorAll('.view-all-projects .button[data-tab="projects"]').forEach(function (el) {
         el.addEventListener('click', function (e) {
+            if (!hasTabs) return;
             e.preventDefault();
             // Activate Projects tab
             showTab('projects');
@@ -148,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Return to Projects buttons
     document.querySelectorAll('.return-to-projects').forEach(function (el) {
         el.addEventListener('click', function (e) {
+            if (!hasTabs) return;
             e.preventDefault();
             showProjects();
         });
@@ -165,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fix: Get In Touch button should switch to Contact section on Home tab
     document.querySelectorAll('.button.alt[data-tab="home"]').forEach(function (el) {
         el.addEventListener('click', function (e) {
+            if (!hasTabs) return;
             e.preventDefault();
             // Scroll to the contact section in the Home tab
             var contactSection = document.getElementById('contact');
@@ -235,6 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
         panelList.addEventListener('click', function (e) {
             const link = e.target.closest('a[data-tab]');
             if (link) {
+                if (!hasTabs) { closePanel(); return; } // allow normal navigation on project pages
                 e.preventDefault();
                 const tabId = link.getAttribute('data-tab');
                 if (tabId) {
@@ -250,6 +271,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Respond to hash changes (e.g., deep links)
+    window.addEventListener('hashchange', () => {
+        if (!hasTabs) return;
+        const tabId = getHashTab();
+        if (tabId && document.getElementById(tabId)) activateTab(tabId);
+    });
 
     // Make each course-list li clickable (navigate to its link)
     document.querySelectorAll('.course-list li').forEach(function (li) {
