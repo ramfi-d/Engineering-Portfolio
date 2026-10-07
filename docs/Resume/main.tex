@@ -39,13 +39,13 @@
 
 \small 
 \textbf{Wet-Dry Cycler for RNA Production} \\
-Recruited and led a team to design and build an automated system to simulate early Earth conditions for non-enzymatic RNA synthesis, supporting origins-of-life research in collaboration with Dr. David Deamer. This project included:
+Designed and built an automated system to simulate early Earth conditions for non-enzymatic RNA synthesis, supporting origins-of-life research in collaboration with Dr. David Deamer and Dr. Milena Popovich. This project included:
 \begin{itemize}[leftmargin=*,itemsep=1pt,topsep=0pt,parsep=0pt,partopsep=0pt]
   \item \textbf{Embedded control:} C/C++ on ESP32-S3 (ESP-IDF) with a finite-state machine, timers/ISRs, watchdog, safe-state recovery, and JSON telemetry/logging.
-  \item \textbf{PCB \& electronics:} Custom PCB integrating DRV8825 stepper drivers, DC mixing motor control, heater switching, NTC thermistor sensing, limit switches, and a 12V/5V power tree with fusing and grounding; benchtop validation with DMM/scope.
-  \item \textbf{Web server \& UI:} Node/Express service with a React dashboard using WebSockets for live status/commands, interlocks, scheduling, and log export.
-  \item \textbf{Submodules:} Thermal plate; syringe-pump rehydration/manifold; vial motion stage; mixing motors; CO\textsubscript{2} purge/flow; extraction/refill; limit switches \& sensors; power distribution.
-  \item \textbf{Delivery \& support:} Delivered to an Eden Rock lab; trained users and documented procedures; continuing maintenance and regular communication with the PhD researchers operating the system.
+  \item \textbf{PCB \& electronics:} Custom PCB integrating DRV8825 stepper drivers, heater switching, I2C thermocouple feedback, and a 120V/24V/5V power tree; benchtop validation with DMM/scope.
+  \item \textbf{Web server \& UI:} Node/Express service with a React dashboard for live status/commands, scheduling, and log export.
+  \item \textbf{Submodules:} Thermal plate; microfluidics-pump rehydration, vial motion stage; mixing motors; CO\textsubscript{2} flow; extraction/refill; limit switches \& sensors; power distribution.
+  \item \textbf{Delivery \& support:} Trained users and documented procedures; continuing maintenance and regular communication with the PhD researchers operating the systems.
 \end{itemize}
 
 
@@ -68,6 +68,11 @@ Led development of an autonomous robot for timed ball collection/deposit with ro
 \section*{Work Experience}
 \small
 
+\textbf{Blue Marble Space Institute of Science at NASA Ames, Moffett Field, CA} \hfill \textit{Jun 2026--Present} \\
+\textit{Research Engineer — Origins-of-Life Instrumentation} \\
+\textit{Exobiology Branch, NASA Ames Research Center} \\[0.3em]
+Developing a wet-dry cycler for origins-of-life research in support of Dr. Milena Popovich and Dr. Alfonso Davila. Building on a robotics capstone project and the third iteration of a system already in use at UpRNA, I am responsible for design, fabrication, testing, and validation of the instrument. The device supports studies of RNA polymerization under prebiotic conditions and how genetic material may have emerged on early Earth.
+
 \textbf{UpRna, Santa Cruz, CA} \hfill \textit{Mar 2026--Present} \\
 \textit{Research Scientist (Device Support)} \\
 \textit{Supervisor: David Deamer (Inventor of Nanopore Sequencing)} \\[0.3em]
@@ -81,8 +86,8 @@ Led tri-weekly lab sessions for 100 plus students on sensor technologies and dat
 \section*{Skills}
 \textbf{Programming:} C, C++, Python, Verilog, MATLAB, Assembly, HTML, CSS, Git.\\
 \textbf{Math \& Physics:} Signals \& systems, control, probability, linear algebra; numerical modeling and error analysis. \\
-\textbf{Systems Modeling:} Kinematics/dynamics; CAD (SolidWorks, Onshape); system architecture; feedback and controls; timing/throughput/latency tradeoffs and test planning. \\
-\textbf{Electronics:} Circuit design/analysis (analog \& digital); PCB fundamentals (schematic capture, layout review); power integrity/decoupling; DMM/oscilloscope/logic analyzer. \\
+\textbf{Systems Modeling:} Kinematics/dynamics; CAD (SolidWorks, Fusion 360); system architecture; feedback and controls \\
+\textbf{Electronics:} Circuit design/analysis (analog \& digital); PCB fundamentals (schematic capture, layout review); power distribution systems; DMM/oscilloscope/logic analyzer. \\
 \textbf{Fabrication:} CNC machining; laser cutting; 3D printing; PCB milling; soldering and microsoldering;\\
 \textbf{Projects:} Firmware \& hardware bring-up; bench validation and log-based debugging; technical documentation. \\
 \textbf{Languages:} French and English.
@@ -95,7 +100,7 @@ Sept 2020 - June 2025 \hfill \textit{Honors Graduate in both fields}
 
 \section*{References}
 \footnotesize
-\textbf{Prof. David Deamer} \href{mailto:deamer@soe.ucsc.edu}{(deamer@soe.ucsc.edu)} • \textbf{Prof. Collen Josephson} \href{mailto:cjosephson@ucsc.edu}{(cjosephson@ucsc.edu)} • \textbf{Vikas Peddu} \href{mailto:Vikas.Peddu@uprna.com}{(Vikas.Peddu@uprna.com)}
+\textbf{Prof. David Deamer} \href{mailto:deamer@soe.ucsc.edu}{(deamer@soe.ucsc.edu)} • \textbf{Prof. Collen Josephson} \href{mailto:cjosephson@ucsc.edu}{(cjosephson@ucsc.edu)} • \textbf{Milena Popovich} \href{mailto:Milena.Popovich@nasa.gov}{(Milena.Popovich@nasa.gov)}
 
 \end{document}
 
