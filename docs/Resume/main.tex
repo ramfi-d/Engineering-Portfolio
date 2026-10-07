@@ -41,10 +41,10 @@
 \textbf{Wet-Dry Cycler for RNA Production} \\
 Designed and built an automated system to simulate early Earth conditions for non-enzymatic RNA synthesis, supporting origins-of-life research in collaboration with Dr. David Deamer and Dr. Milena Popovich. This project included:
 \begin{itemize}[leftmargin=*,itemsep=1pt,topsep=0pt,parsep=0pt,partopsep=0pt]
-  \item \textbf{Embedded control:} C/C++ on ESP32-S3 (ESP-IDF) with a finite-state machine, timers/ISRs, watchdog, safe-state recovery, and JSON telemetry/logging.
-  \item \textbf{PCB \& electronics:} Custom PCB integrating DRV8825 stepper drivers, heater switching, I2C thermocouple feedback, and a 120V/24V/5V power tree; benchtop validation with DMM/scope.
-  \item \textbf{Web server \& UI:} Node/Express service with a React dashboard for live status/commands, scheduling, and log export.
-  \item \textbf{Submodules:} Thermal plate; microfluidics-pump rehydration, vial motion stage; mixing motors; CO\textsubscript{2} flow; extraction/refill; limit switches \& sensors; power distribution.
+  \item \textbf{Embedded control:} C/C++ on ESP32-S3 (ESP32) with a finite-state machine, timers/ISRs, watchdog, safe-state recovery, and JSON telemetry/logging.
+  \item \textbf{PCB \& electronics:} Custom PCB integrating DRV8825 stepper drivers and, heater switching, peltier bidirectional control, thermocouple feedback, and a 120V/24V/5V power tree; benchtop validation with DMM/scope.
+  \item \textbf{UI:} React dashboard for live status/commands, scheduling, and log export.
+  \item \textbf{Submodules:} Thermal plate; microfluidics-pump rehydration, vial motion stage; mixing motors; CO\textsubscript{2} flow; limit switches \& sensors; power distribution.
   \item \textbf{Delivery \& support:} Trained users and documented procedures; continuing maintenance and regular communication with the PhD researchers operating the systems.
 \end{itemize}
 
@@ -60,7 +60,7 @@ Designed a 9-DOF BNO055–based motion tracker with a minimal MCU state machine 
 Led development of an autonomous robot for timed ball collection/deposit with robust real-time control under randomized field constraints.
 \begin{itemize}[leftmargin=*,itemsep=1pt,topsep=0pt,parsep=0pt,partopsep=0pt]
   \item \textbf{Embedded/RT control:} C on PIC32 with interrupt-driven state machine, watchdogs, and debounced sensors. 
-  \item \textbf{Sensors/electronics:} 6 bumpers, 5 IR tape sensors; H-bridge motor control; regulated 5V (servo) and 3.3V (sensors/encoders); reverse-polarity protection with power LEDs, heatsinked 3.3V regulator; noise-reduced sensor wiring.
+  \item \textbf{Sensors/electronics:} 6 bumpers, 5 IR tape sensors; H-bridge motor control; regulated 5V (servo) and 3.3V (sensors/encoders); reverse-polarity protection with power LEDs; noise-reduced sensor wiring.
 \end{itemize}
 
 \textbf{Detailed descriptions, documentation, and additional projects available at: }\colorbox{yellow}{\href{https://ramfi-d.github.io/Engineering-Portfolio/}{\textbf{ramfi-d.github.io/Engineering-Portfolio/}}}

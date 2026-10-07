@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1791389287.56184 "/Users/rafael/Dropbox/Website/docs/Resume/main.tex" "main.pdf" "main" 1791389288.20418 0
-  "/Users/rafael/Dropbox/Website/docs/Resume/main.tex" 1791389287.63567 6944 c6e9f130c960ee3884003a1876b3e7a4 ""
+["pdflatex"] 1791390557.00345 "/Users/rafael/Dropbox/Website/docs/Resume/main.tex" "main.pdf" "main" 1791390557.61249 0
+  "/Users/rafael/Dropbox/Website/docs/Resume/main.tex" 1791390556.944 6885 7ae71fa1e7eae3a69107213f0cb01c7c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm0800.tfm" 1136768653 1536 05df9db6aeccc4eea94fec15c9024f79 ""
@@ -76,9 +76,9 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1753033482 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "main.aux" 1791389288.14319 162 55205a9e8a8eca30d36afb389b0617bf "pdflatex"
-  "main.out" 1791389287.94677 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1791389287.63567 6944 c6e9f130c960ee3884003a1876b3e7a4 ""
+  "main.aux" 1791390557.53686 162 55205a9e8a8eca30d36afb389b0617bf "pdflatex"
+  "main.out" 1791390557.35876 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1791390556.944 6885 7ae71fa1e7eae3a69107213f0cb01c7c ""
   (generated)
   "main.aux"
   "main.log"
